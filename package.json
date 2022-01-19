@@ -10,7 +10,8 @@
     "@reduxjs/toolkit": "^1.7.1",
     "preact": "^10.5.15",
     "react-redux": "^7.2.6",
-    "react-router-dom": "^6.2.1"
+    "react-router-dom": "^6.2.1",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.1.5",
