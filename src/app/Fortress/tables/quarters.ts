@@ -1,8 +1,4 @@
-import { ITable } from "./type";
-
-export interface IQuarters extends ITable {
-  timeReduction: number;
-}
+import type { IQuarters } from './type';
 
 export const quartersLevel: IQuarters[] = [
   { level: 1, gold: 5, wood: 35, stone: 12, timeReduction: 5 },

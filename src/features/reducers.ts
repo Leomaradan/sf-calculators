@@ -1,5 +1,5 @@
-import { combineReducers, createReducer } from "@reduxjs/toolkit";
-import fortressSlice from "./fortress/fortressSlice";
+import { combineReducers } from '@reduxjs/toolkit';
+import fortressSlice from './fortress/fortressSlice';
 
 const rootReducer = combineReducers({
   fortress: fortressSlice,

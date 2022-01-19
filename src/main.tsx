@@ -1,4 +1,5 @@
-import { render } from "preact";
-import { App } from "./app";
+import { render } from 'preact';
+import { App } from './app';
 
-render(<App />, document.getElementById("app")!);
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+render(<App />, document.getElementById('app')!);

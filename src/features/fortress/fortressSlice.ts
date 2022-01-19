@@ -1,30 +1,5 @@
-import { createSlice, DeepPartial, PayloadAction } from "@reduxjs/toolkit";
-
-export interface IFortressState {
-  fortress: number;
-  quarters: number;
-  woodcutter: number;
-  quarry: number;
-  mine: number;
-  academy: number;
-  treasury: number;
-  barracks: number;
-  archery: number;
-  mageTower: number;
-  smithy: number;
-  fortifications: number;
-  hok: number;
-  soldier: number;
-  archer: number;
-  mage: number;
-}
-
-export interface IFortressPlanerState {
-  current: IFortressState;
-  target: IFortressState;
-}
-
-type Payload = PayloadAction<DeepPartial<IFortressState>>;
+import { createSlice } from '@reduxjs/toolkit';
+import type { IFortressPlanerState, Payload } from './types';
 
 const initialState: IFortressPlanerState = {
   current: {
@@ -66,14 +41,15 @@ const initialState: IFortressPlanerState = {
 };
 
 export const fortressSlice = createSlice({
-  name: "fortress",
+  name: 'fortress',
   initialState,
   reducers: {
     setCurrent: (state, action: Payload) => {
-      state.current = Object.assign({}, state.current, action.payload);
+      // eslint-disable-next-line no-param-reassign
+      state.current = { ...state.current, ...action.payload };
     },
     setTarget: (state, action: Payload) => {
-      state.target = Object.assign({}, state.target, action.payload);
+      state.target = { ...state.target, ...action.payload };
     },
   },
 });

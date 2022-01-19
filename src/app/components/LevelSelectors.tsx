@@ -1,3 +1,5 @@
+import LabelUcFirst from './LabelUcFirst';
+
 export interface ILevelSelectorsProps {
   max: number | { current: number; target: number };
   label: string;
@@ -5,8 +7,9 @@ export interface ILevelSelectorsProps {
   targetLabel?: string;
   current: number;
   target: number;
-  setCurrent: (current: number) => void;
-  setTarget: (target: number) => void;
+  setCurrent(current: number): void;
+  setTarget(target: number): void;
+  childForm?: boolean;
 }
 
 export const LevelSelectors = ({
@@ -18,14 +21,13 @@ export const LevelSelectors = ({
   setTarget,
   target,
   label,
+  childForm,
 }: ILevelSelectorsProps) => {
-  const maxCurrent = typeof max === "number" ? max : max.current;
-  const maxTarget = typeof max === "number" ? max : max.target;
-
-  console.log({ maxCurrent, maxTarget });
+  const maxCurrent = typeof max === 'number' ? max : max.current;
+  const maxTarget = typeof max === 'number' ? max : max.target;
 
   const onChangeCurrent = (e: JSX.TargetedEvent<HTMLInputElement, Event>) => {
-    const value = parseInt(e.currentTarget.value);
+    const value = parseInt(e.currentTarget.value, 10);
 
     setCurrent(value);
     if (value > target) {
@@ -34,38 +36,41 @@ export const LevelSelectors = ({
   };
 
   const onChangeTarget = (e: JSX.TargetedEvent<HTMLInputElement, Event>) => {
-    const value = parseInt(e.currentTarget.value);
+    const value = parseInt(e.currentTarget.value, 10);
 
-    if (value > current) {
+    if (value >= current) {
       setTarget(value);
     }
   };
 
   return (
-    <div class="row">
-      <div class="col">
-        <label class="form-label">{label}</label>
+    <div className="row">
+      <div className="col">
+        <label className="form-label">
+          {childForm && <i className="bi bi-arrow-return-right" />}
+          <LabelUcFirst>{label}</LabelUcFirst>
+        </label>
       </div>
-      <div class="col">
+      <div className="col">
         <input
           type="number"
           min="0"
           max={maxCurrent}
           value={current}
           onInput={onChangeCurrent}
-          class="form-control"
+          className="form-control"
           placeholder={currentLabel}
           aria-label={currentLabel}
         />
       </div>
-      <div class="col">
+      <div className="col">
         <input
           type="number"
           min={current}
           max={maxTarget}
           value={target}
           onInput={onChangeTarget}
-          class="form-control"
+          className="form-control"
           placeholder={targetLabel}
           aria-label={targetLabel}
         />

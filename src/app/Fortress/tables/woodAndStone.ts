@@ -1,9 +1,4 @@
-import { ITable } from "./type";
-
-export interface IWoodAndStone extends ITable {
-  storage: number;
-  resourceHour: number;
-}
+import type { IWoodAndStone } from './type';
 
 export const woodcutterLevel: IWoodAndStone[] = [
   { level: 1, gold: 2, wood: 0, stone: 0, storage: 375, resourceHour: 150 },

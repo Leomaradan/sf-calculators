@@ -1,0 +1,46 @@
+import { useContext } from 'preact/hooks';
+import { createContext } from 'preact';
+import { dictionaryList } from './language';
+import type {
+  ILanguage,
+  ILanguageContextDefinition,
+  KeysLanguageType,
+} from './type';
+
+export const LanguageContext = createContext<ILanguageContextDefinition>({
+  allDictionary: dictionaryList,
+  dictionary: dictionaryList['en-US'],
+  userLanguage: 'en-US',
+
+  userLanguageChange: () => {
+    // Nothing
+  },
+});
+
+export const useLanguage = (): ILanguage => {
+  const languageContext = useContext(LanguageContext);
+
+  return languageContext.dictionary;
+};
+
+export const useLanguageResolver = () => {
+  const languageContext = useContext(LanguageContext);
+
+  return (pathToken: string): string => {
+    const tokens = pathToken.split('.');
+    let current: any = languageContext.dictionary;
+
+    tokens.forEach((token) => {
+      if (current[token] !== undefined) {
+        current = current[token];
+      }
+    });
+
+    return String(current);
+  };
+};
+export const useLocale = (): KeysLanguageType => {
+  const languageContext = useContext(LanguageContext);
+
+  return languageContext.userLanguage;
+};

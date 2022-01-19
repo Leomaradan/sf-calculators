@@ -1,4 +1,4 @@
-import { ITable } from "./type";
+import type { ITable } from './type';
 
 export const mineLevel: ITable[] = [
   { level: 1, gold: 15, wood: 50, stone: 17 },

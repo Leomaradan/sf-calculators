@@ -1,16 +1,14 @@
-import { LevelSelectors } from "./components/LevelSelectors";
-import {
-  IFortressState,
-  setCurrent,
-  setTarget,
-} from "../features/fortress/fortressSlice";
-import { Stats } from "./components/Stats";
-import { useAppDispatch, useAppSelector } from "../features/hooks";
-import { Dispatch, AnyAction, DeepPartial } from "@reduxjs/toolkit";
+import type { Dispatch, AnyAction } from '@reduxjs/toolkit';
+import { LevelSelectors } from '../components/LevelSelectors';
+import { setCurrent, setTarget } from '../../features/fortress/fortressSlice';
+import FortressStats from './FortressStats';
+import { useAppDispatch, useAppSelector } from '../../features/hooks';
+import type { IFortressState } from '../../features/fortress/types';
+import { useLanguage } from '../../lang/LanguageContext';
 
 const useFortressDispatchers = (
   dispatch: Dispatch<AnyAction>,
-  building: keyof IFortressState
+  building: keyof IFortressState,
 ) => {
   const setCurrentDispatch = (num: number) => {
     dispatch(setCurrent({ [building]: num }));
@@ -28,72 +26,74 @@ const Fortress = () => {
 
   const dispatch = useAppDispatch();
 
+  const { fortress } = useLanguage();
+
   const [setCurrentAcademy, setTargetAcademy] = useFortressDispatchers(
     dispatch,
-    "academy"
+    'academy',
   );
   const [setCurrentArchery, setTargetArchery] = useFortressDispatchers(
     dispatch,
-    "archery"
+    'archery',
   );
   const [setCurrentBarracks, setTargetBarracks] = useFortressDispatchers(
     dispatch,
-    "barracks"
+    'barracks',
   );
   const [setCurrentFortifications, setTargetFortifications] =
-    useFortressDispatchers(dispatch, "fortifications");
+    useFortressDispatchers(dispatch, 'fortifications');
   const [setCurrentFortress, setTargetFortress] = useFortressDispatchers(
     dispatch,
-    "fortress"
+    'fortress',
   );
   const [setCurrentMageTower, setTargetMageTower] = useFortressDispatchers(
     dispatch,
-    "mageTower"
+    'mageTower',
   );
   const [setCurrentMine, setTargetMine] = useFortressDispatchers(
     dispatch,
-    "mine"
+    'mine',
   );
   const [setCurrentQuarry, setTargetQuarry] = useFortressDispatchers(
     dispatch,
-    "quarry"
+    'quarry',
   );
   const [setCurrentQuarters, setTargetQuarters] = useFortressDispatchers(
     dispatch,
-    "quarters"
+    'quarters',
   );
   const [setCurrentSmithy, setTargetSmithy] = useFortressDispatchers(
     dispatch,
-    "smithy"
+    'smithy',
   );
   const [setCurrentTreasury, setTargetTreasury] = useFortressDispatchers(
     dispatch,
-    "treasury"
+    'treasury',
   );
   const [setCurrentWoodcutter, setTargetWoodcutter] = useFortressDispatchers(
     dispatch,
-    "woodcutter"
+    'woodcutter',
   );
 
-  const [setCurrentHoK, setTargetHoK] = useFortressDispatchers(dispatch, "hok");
+  const [setCurrentHoK, setTargetHoK] = useFortressDispatchers(dispatch, 'hok');
   const [setCurrentSoldier, setTargetSoldier] = useFortressDispatchers(
     dispatch,
-    "soldier"
+    'soldier',
   );
   const [setCurrentArcher, setTargetArcher] = useFortressDispatchers(
     dispatch,
-    "archer"
+    'archer',
   );
   const [setCurrentMage, setTargetMage] = useFortressDispatchers(
     dispatch,
-    "mage"
+    'mage',
   );
 
   return (
     <>
-      <div class="container">
+      <div className="container">
         <LevelSelectors
-          label="Fortress"
+          label={fortress.buildingFortress}
           max={20}
           current={current.fortress}
           target={target.fortress}
@@ -101,7 +101,7 @@ const Fortress = () => {
           setTarget={setTargetFortress}
         />
         <LevelSelectors
-          label="HoK"
+          label={fortress.upgradeHoK}
           max={{
             current: current.fortress,
             target: target.fortress,
@@ -110,9 +110,10 @@ const Fortress = () => {
           target={target.hok}
           setCurrent={setCurrentHoK}
           setTarget={setTargetHoK}
+          childForm
         />
         <LevelSelectors
-          label="Laborer's Quarters"
+          label={fortress.buildingQuarters}
           max={15}
           current={current.quarters}
           target={target.quarters}
@@ -120,7 +121,7 @@ const Fortress = () => {
           setTarget={setTargetQuarters}
         />
         <LevelSelectors
-          label="Woodcutter's Hut"
+          label={fortress.buildingWoodcutter}
           max={20}
           current={current.woodcutter}
           target={target.woodcutter}
@@ -128,7 +129,7 @@ const Fortress = () => {
           setTarget={setTargetWoodcutter}
         />
         <LevelSelectors
-          label="Quarry"
+          label={fortress.buildingQuarry}
           max={20}
           current={current.quarry}
           target={target.quarry}
@@ -136,7 +137,7 @@ const Fortress = () => {
           setTarget={setTargetQuarry}
         />
         <LevelSelectors
-          label="Gem Mine"
+          label={fortress.buildingMine}
           max={20}
           current={current.mine}
           target={target.mine}
@@ -144,7 +145,7 @@ const Fortress = () => {
           setTarget={setTargetMine}
         />
         <LevelSelectors
-          label="Academy"
+          label={fortress.buildingAcademy}
           max={20}
           current={current.academy}
           target={target.academy}
@@ -152,7 +153,7 @@ const Fortress = () => {
           setTarget={setTargetAcademy}
         />
         <LevelSelectors
-          label="Archery Guild"
+          label={fortress.buildingArchery}
           max={15}
           current={current.archery}
           target={target.archery}
@@ -160,7 +161,7 @@ const Fortress = () => {
           setTarget={setTargetArchery}
         />
         <LevelSelectors
-          label="Barracks"
+          label={fortress.buildingBarracks}
           max={15}
           current={current.barracks}
           target={target.barracks}
@@ -168,7 +169,7 @@ const Fortress = () => {
           setTarget={setTargetBarracks}
         />
         <LevelSelectors
-          label="Mages Tower"
+          label={fortress.buildingMageTower}
           max={15}
           current={current.mageTower}
           target={target.mageTower}
@@ -176,7 +177,7 @@ const Fortress = () => {
           setTarget={setTargetMageTower}
         />
         <LevelSelectors
-          label="Treasury"
+          label={fortress.buildingTreasury}
           max={20}
           current={current.treasury}
           target={target.treasury}
@@ -184,7 +185,7 @@ const Fortress = () => {
           setTarget={setTargetTreasury}
         />
         <LevelSelectors
-          label="Smithy"
+          label={fortress.buildingSmithy}
           max={20}
           current={current.smithy}
           target={target.smithy}
@@ -192,7 +193,43 @@ const Fortress = () => {
           setTarget={setTargetSmithy}
         />
         <LevelSelectors
-          label="Fortifications"
+          label={fortress.unitSoldier}
+          max={{
+            current: current.smithy,
+            target: target.smithy,
+          }}
+          current={current.soldier}
+          target={target.soldier}
+          setCurrent={setCurrentSoldier}
+          setTarget={setTargetSoldier}
+          childForm
+        />
+        <LevelSelectors
+          label={fortress.unitArcher}
+          max={{
+            current: current.smithy,
+            target: target.smithy,
+          }}
+          current={current.archer}
+          target={target.archer}
+          setCurrent={setCurrentArcher}
+          setTarget={setTargetArcher}
+          childForm
+        />
+        <LevelSelectors
+          label={fortress.unitMage}
+          max={{
+            current: current.smithy,
+            target: target.smithy,
+          }}
+          current={current.mage}
+          target={target.mage}
+          setCurrent={setCurrentMage}
+          setTarget={setTargetMage}
+          childForm
+        />
+        <LevelSelectors
+          label={fortress.buildingFortifications}
           max={20}
           current={current.fortifications}
           target={target.fortifications}
@@ -200,7 +237,7 @@ const Fortress = () => {
           setTarget={setTargetFortifications}
         />
       </div>
-      <Stats />
+      <FortressStats />
     </>
   );
 };

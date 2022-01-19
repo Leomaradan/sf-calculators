@@ -1,8 +1,4 @@
-import { ITable } from "./type";
-
-export interface IAcademy extends ITable {
-  timeToFill: number;
-}
+import type { IAcademy } from './type';
 
 export const academyLevel: IAcademy[] = [
   { level: 1, gold: 7, wood: 7, stone: 9, timeToFill: 60 },

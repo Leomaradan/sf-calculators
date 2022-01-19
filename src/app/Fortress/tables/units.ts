@@ -1,10 +1,4 @@
-import { ITable } from "./type";
-
-export interface IUnit extends ITable {
-  limit: number;
-}
-
-export type IUpgrade = Omit<ITable, "gold">;
+import type { ITable, IUnit, IUpgrade } from './type';
 
 export const archeryLevel: IUnit[] = [
   { level: 1, gold: 5, wood: 41, stone: 7, limit: 2 },

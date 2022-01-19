@@ -1,0 +1,34 @@
+{
+  "app": {
+    "home": "Accueil",
+    "title": "S & F Calculateur",
+    "tools": "Outils"
+  },
+  "general": {
+    "count": "nombre",
+    "gold": "or",
+    "resources": "ressources",
+    "stone": "pierre",
+    "wood": "bois"
+  },
+  "fortress": {
+    "buildingAcademy": "Académie",
+    "buildingArchery": "Guilde des archers",
+    "buildingBarracks": "Caserne",
+    "buildingFortifications": "Fortifications",
+    "buildingFortress": "Forteresse",
+    "buildingMageTower": "Tour des mages",
+    "buildingMine": "Mine de gemmes",
+    "buildingQuarry": "Carrière",
+    "buildingQuarters": "Quartier ouvrier",
+    "buildingSmithy": "Forge",
+    "buildingTreasury": "Banque",
+    "buildingWoodcutter": "Camp de bûcherons",
+    "title": "Forteresse",
+    "description": "Planificateur de développement de forteresse",
+    "unitArcher": "Archer",
+    "unitMage": "Mage de combat",
+    "unitSoldier": "Soldat",
+    "upgradeHoK": "Hall of Knights"
+  }
+}

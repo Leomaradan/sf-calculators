@@ -1,4 +1,4 @@
-import { ITable } from "./type";
+import type { ITable, IUpgrade } from './type';
 
 export const fortressLevel: ITable[] = [
   { level: 1, gold: 10, wood: 0, stone: 0 },
@@ -23,9 +23,7 @@ export const fortressLevel: ITable[] = [
   { level: 20, gold: 200, wood: 165000000, stone: 54000000 },
 ];
 
-type IHoK = Omit<ITable, "gold">;
-
-export const hallOfKnightsUpgradeLevel: IHoK[] = [
+export const hallOfKnightsUpgradeLevel: IUpgrade[] = [
   { level: 1, wood: 720, stone: 240 },
   { level: 2, wood: 1408, stone: 448 },
   { level: 3, wood: 2640, stone: 800 },

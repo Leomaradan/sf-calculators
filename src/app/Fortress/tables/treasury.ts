@@ -1,8 +1,4 @@
-import { ITable } from "./type";
-
-export interface ITreasury extends ITable {
-  slot: number;
-}
+import type { ITreasury } from './type';
 
 export const treasuryLevel: ITreasury[] = [
   { level: 1, gold: 25, wood: 40, stone: 13, slot: 6 },

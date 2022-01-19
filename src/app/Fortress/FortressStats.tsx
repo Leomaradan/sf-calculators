@@ -1,27 +1,30 @@
-import { useMemo } from "preact/hooks";
-import { IFortressState } from "../../features/fortress/fortressSlice";
-import { useAppSelector } from "../../features/hooks";
-import { academyLevel } from "../fortressTables/academy";
+import { useMemo } from 'preact/hooks';
+import type { IFortressState } from '../../features/fortress/types';
+import { useAppSelector } from '../../features/hooks';
 import {
-  fortressLevel,
-  hallOfKnightsUpgradeLevel,
-} from "../fortressTables/fortress";
-import { mineLevel } from "../fortressTables/mine";
-import { quartersLevel } from "../fortressTables/quarters";
-import { treasuryLevel } from "../fortressTables/treasury";
-import { ITable } from "../fortressTables/type";
-import {
-  archerUpgradeLevel,
+  academyLevel,
   archeryLevel,
   barracksLevel,
-  IUpgrade,
+  fortressLevel,
   mageTowerLevel,
-  mageUpgradeLevel,
+  mineLevel,
+  quarryLevel,
+  quartersLevel,
   smithyLevel,
+  treasuryLevel,
+  woodcutterLevel,
+  archerUpgradeLevel,
+  hallOfKnightsUpgradeLevel,
+  mageUpgradeLevel,
   soldierUpgradeLevel,
-} from "../fortressTables/units";
-import { quarryLevel, woodcutterLevel } from "../fortressTables/woodAndStone";
-import { NumberDisplay } from "./NumberDisplay";
+  fortificationLevel,
+} from './tables';
+
+import type { ITable, IUpgrade } from './tables/type';
+
+import { NumberDisplay } from '../components/NumberDisplay';
+import { useLanguage } from '../../lang/LanguageContext';
+import LabelUcFirst from '../components/LabelUcFirst';
 
 const getRange = (current: number, target: number) =>
   new Array(target - current).fill(0).map((_, i) => i + current + 1);
@@ -31,7 +34,7 @@ const tables: Record<keyof IFortressState, ITable[] | IUpgrade[]> = {
   archery: archeryLevel,
   barracks: barracksLevel,
   fortress: fortressLevel,
-  fortifications: [],
+  fortifications: fortificationLevel,
   mageTower: mageTowerLevel,
   mine: mineLevel,
   quarry: quarryLevel,
@@ -45,10 +48,10 @@ const tables: Record<keyof IFortressState, ITable[] | IUpgrade[]> = {
   soldier: soldierUpgradeLevel,
 };
 
-export const Stats = () => {
+const FortressStats = () => {
   const fortress = useAppSelector((state) => state.fortress);
 
-  console.log({ fortress });
+  const { general } = useLanguage();
 
   const fortressResources = useMemo(() => {
     let gold = 0;
@@ -59,7 +62,7 @@ export const Stats = () => {
       const building = key as keyof IFortressState;
       const range = getRange(
         fortress.current[building],
-        fortress.target[building]
+        fortress.target[building],
       );
 
       range.forEach((level) => {
@@ -81,34 +84,42 @@ export const Stats = () => {
     };
   }, [fortress]);
 
-  const gold = fortressResources.gold;
-  const wood = fortressResources.wood;
-  const stone = fortressResources.stone;
+  const { gold, wood, stone } = fortressResources;
 
   return (
     <>
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
-            <th scope="col">Resource</th>
-            <th scope="col">Count</th>
+            <th scope="col">
+              <LabelUcFirst>{general.resources}</LabelUcFirst>
+            </th>
+            <th scope="col">
+              <LabelUcFirst>{general.count}</LabelUcFirst>
+            </th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">Gold</th>
+            <th scope="row">
+              <LabelUcFirst>{general.gold}</LabelUcFirst>
+            </th>
             <td>
               <NumberDisplay>{gold}</NumberDisplay>
             </td>
           </tr>
           <tr>
-            <th scope="row">Wood</th>
+            <th scope="row">
+              <LabelUcFirst>{general.wood}</LabelUcFirst>
+            </th>
             <td>
               <NumberDisplay>{wood}</NumberDisplay>
             </td>
           </tr>
           <tr>
-            <th scope="row">Stone</th>
+            <th scope="row">
+              <LabelUcFirst>{general.stone}</LabelUcFirst>
+            </th>
             <td>
               <NumberDisplay>{stone}</NumberDisplay>
             </td>
@@ -118,3 +129,5 @@ export const Stats = () => {
     </>
   );
 };
+
+export default FortressStats;

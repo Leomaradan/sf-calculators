@@ -1,0 +1,34 @@
+{
+  "app": {
+    "home": "Home",
+    "title": "S & F Calculator",
+    "tools": "Tools"
+  },
+  "general": {
+    "count": "count",
+    "gold": "gold",
+    "resources": "resources",
+    "stone": "stone",
+    "wood": "wood"
+  },
+  "fortress": {
+    "buildingAcademy": "Academy",
+    "buildingArchery": "Archery Guild",
+    "buildingBarracks": "Barracks",
+    "buildingFortifications": "Fortifications",
+    "buildingFortress": "Fortress",
+    "buildingMageTower": "Mages Tower",
+    "buildingMine": "Gem Mine",
+    "buildingQuarry": "Quarry",
+    "buildingQuarters": "Laborer's Quarters",
+    "buildingSmithy": "Smithy",
+    "buildingTreasury": "Treasury",
+    "buildingWoodcutter": "Woodcutter's Hut",
+    "title": "Fortress",
+    "description": "Fortress construction planner",
+    "unitArcher": "Archer",
+    "unitMage": "Mage",
+    "unitSoldier": "Soldier",
+    "upgradeHoK": "Hall of Knights"
+  }
+}

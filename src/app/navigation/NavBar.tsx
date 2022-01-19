@@ -1,14 +1,28 @@
-import { Link } from "react-router-dom";
+import { useEffect } from 'preact/hooks';
+import { Link } from 'react-router-dom';
+import type { IRoute } from 'src/router';
+import { useLanguage, useLanguageResolver } from '../../lang/LanguageContext';
 
-const NavBar = () => {
+interface INavBarProps {
+  tools: IRoute[];
+}
+
+const NavBar = ({ tools }: INavBarProps) => {
+  const { app } = useLanguage();
+  const resolver = useLanguageResolver();
+
+  useEffect(() => {
+    document.title = app.title;
+  }, [app.title]);
+
   return (
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          S &amp; F Calculations
-        </a>
+    <nav className="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+      <div className="container-fluid">
+        <Link className="navbar-brand" to="/">
+          {app.title}
+        </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarCollapse"
@@ -16,31 +30,34 @@ const NavBar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon" />
         </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">
-                Home
-              </a>
+        <div className="collapse navbar-collapse" id="navbarCollapse">
+          <ul className="navbar-nav me-auto mb-2 mb-md-0">
+            <li className="nav-item">
+              <Link className="nav-link active" aria-current="page" to="/">
+                {app.home}
+              </Link>
             </li>
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown">
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 href="#"
                 id="dropdownNav"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Tools
+                {app.tools}
               </a>
-              <ul class="dropdown-menu" aria-labelledby="dropdownNav">
-                <li>
-                  <Link className="dropdown-item" to="/fortress">
-                    Fortress
-                  </Link>
-                </li>
+              <ul className="dropdown-menu" aria-labelledby="dropdownNav">
+                {tools.map(({ route, title }) => (
+                  <li key={route}>
+                    <Link className="dropdown-item" to={route}>
+                      {resolver(title)}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </li>
           </ul>
