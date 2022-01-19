@@ -1,0 +1,9 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["/lang/*.json", "!/lang/schema.json"],
+      "url": "./src/lang/schema.json"
+    }
+  ],
+  "typescript.preferences.importModuleSpecifier": "relative"
+}
