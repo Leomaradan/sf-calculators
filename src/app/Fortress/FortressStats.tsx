@@ -26,8 +26,10 @@ import { useLanguage } from '../../lang/LanguageContext';
 import LabelUcFirst from '../components/LabelUcFirst';
 import NumberDisplay from '../components/NumberDisplay';
 
-const getRange = (current: number, target: number) =>
-  new Array(target - current).fill(0).map((_, i) => i + current + 1);
+const getRange = (current = 0, target = 0) =>
+  current === 0 && target === 0
+    ? []
+    : new Array(target - current).fill(0).map((_, i) => i + current + 1);
 
 const tables: Record<keyof IFortressState, ITable[] | IUpgrade[]> = {
   academy: academyLevel,
