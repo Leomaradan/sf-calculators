@@ -1,21 +1,21 @@
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { HashRouter, Route, Routes } from 'react-router-dom';
-import getStore from './features/store';
-import NavBar from './app/navigation/NavBar';
-import './app.scss';
-import Home from './app/Home';
-import Fortress from './app/Fortress';
-import LanguageProvider from './lang/LanguageProvider';
 import 'bootstrap';
+import { Provider } from 'react-redux';
+import { HashRouter, Route, Routes } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
+import './app.scss';
+import Fortress from './app/Fortress/Fortress';
+import Home from './app/Home';
+import NavBar from './app/navigation/NavBar';
+import getStore from './features/store';
+import LanguageProvider from './lang/LanguageProvider';
 import type { IRoute } from './router';
 
 const tools: IRoute[] = [
   {
-    route: '/fortress',
-    title: 'fortress.title',
     description: 'fortress.description',
     page: Fortress,
+    route: '/fortress',
+    title: 'fortress.title',
   },
 ];
 
@@ -28,11 +28,11 @@ export function App() {
           <HashRouter>
             <NavBar tools={tools} />
             <main className="container">
-              <div className="bg-light p-5 rounded">
+              <div className="page-container p-5">
                 <Routes>
-                  <Route path="/" element={<Home tools={tools} />} />
-                  {tools.map(({ route, page: Page }) => (
-                    <Route key={route} path={route} element={<Page />} />
+                  <Route element={<Home tools={tools} />} path="/" />
+                  {tools.map(({ page: Page, route }) => (
+                    <Route element={<Page />} key={route} path={route} />
                   ))}
                 </Routes>
               </div>

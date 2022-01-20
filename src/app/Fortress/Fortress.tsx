@@ -1,10 +1,19 @@
-import type { Dispatch, AnyAction } from '@reduxjs/toolkit';
-import { LevelSelectors } from '../components/LevelSelectors';
+import type { AnyAction, Dispatch } from '@reduxjs/toolkit';
 import { setCurrent, setTarget } from '../../features/fortress/fortressSlice';
-import FortressStats from './FortressStats';
-import { useAppDispatch, useAppSelector } from '../../features/hooks';
 import type { IFortressState } from '../../features/fortress/types';
+import { useAppDispatch, useAppSelector } from '../../features/hooks';
 import { useLanguage } from '../../lang/LanguageContext';
+import { LevelSelectors } from '../components/LevelSelectors';
+import AcademyStat from './AcademyStat';
+import ArcherStat from './ArcherStat';
+import FortressStats from './FortressStats';
+import GemMineStat from './GemMineStat';
+import MageStat from './MageStat';
+import QuarryStat from './QuarryStat';
+import QuartersStat from './QuartersStat';
+import SoldierStat from './SoldierStat';
+import TreasuryStat from './TreasuryStats';
+import WoodcutterStat from './WoodcutterStat';
 
 const useFortressDispatchers = (
   dispatch: Dispatch<AnyAction>,
@@ -93,148 +102,166 @@ const Fortress = () => {
     <>
       <div className="container">
         <LevelSelectors
+          current={current.fortress}
           label={fortress.buildingFortress}
           max={20}
-          current={current.fortress}
-          target={target.fortress}
           setCurrent={setCurrentFortress}
           setTarget={setTargetFortress}
+          target={target.fortress}
         />
+
         <LevelSelectors
+          childForm
+          current={current.hok}
           label={fortress.upgradeHoK}
           max={{
             current: current.fortress,
             target: target.fortress,
           }}
-          current={current.hok}
-          target={target.hok}
           setCurrent={setCurrentHoK}
           setTarget={setTargetHoK}
-          childForm
+          target={target.hok}
         />
+        <hr className="d-none d-lg-block" />
         <LevelSelectors
+          additionalStats={QuartersStat}
+          current={current.quarters}
           label={fortress.buildingQuarters}
           max={15}
-          current={current.quarters}
-          target={target.quarters}
           setCurrent={setCurrentQuarters}
           setTarget={setTargetQuarters}
+          target={target.quarters}
         />
+        <hr className="d-none d-lg-block" />
         <LevelSelectors
+          additionalStats={WoodcutterStat}
+          current={current.woodcutter}
           label={fortress.buildingWoodcutter}
           max={20}
-          current={current.woodcutter}
-          target={target.woodcutter}
           setCurrent={setCurrentWoodcutter}
           setTarget={setTargetWoodcutter}
+          target={target.woodcutter}
         />
         <LevelSelectors
+          additionalStats={QuarryStat}
+          current={current.quarry}
           label={fortress.buildingQuarry}
           max={20}
-          current={current.quarry}
-          target={target.quarry}
           setCurrent={setCurrentQuarry}
           setTarget={setTargetQuarry}
+          target={target.quarry}
         />
+        <hr className="d-none d-lg-block" />
         <LevelSelectors
+          additionalStats={GemMineStat}
+          current={current.mine}
           label={fortress.buildingMine}
           max={20}
-          current={current.mine}
-          target={target.mine}
           setCurrent={setCurrentMine}
           setTarget={setTargetMine}
+          target={target.mine}
         />
+        <hr className="d-none d-lg-block" />
         <LevelSelectors
+          additionalStats={AcademyStat}
+          current={current.academy}
           label={fortress.buildingAcademy}
           max={20}
-          current={current.academy}
-          target={target.academy}
           setCurrent={setCurrentAcademy}
           setTarget={setTargetAcademy}
+          target={target.academy}
         />
+        <hr className="d-none d-lg-block" />
         <LevelSelectors
+          additionalStats={ArcherStat}
+          current={current.archery}
           label={fortress.buildingArchery}
           max={15}
-          current={current.archery}
-          target={target.archery}
           setCurrent={setCurrentArchery}
           setTarget={setTargetArchery}
+          target={target.archery}
         />
         <LevelSelectors
+          additionalStats={SoldierStat}
+          current={current.barracks}
           label={fortress.buildingBarracks}
           max={15}
-          current={current.barracks}
-          target={target.barracks}
           setCurrent={setCurrentBarracks}
           setTarget={setTargetBarracks}
+          target={target.barracks}
         />
         <LevelSelectors
+          additionalStats={MageStat}
+          current={current.mageTower}
           label={fortress.buildingMageTower}
           max={15}
-          current={current.mageTower}
-          target={target.mageTower}
           setCurrent={setCurrentMageTower}
           setTarget={setTargetMageTower}
+          target={target.mageTower}
         />
+        <hr className="d-none d-lg-block" />
         <LevelSelectors
+          additionalStats={TreasuryStat}
+          current={current.treasury}
           label={fortress.buildingTreasury}
           max={20}
-          current={current.treasury}
-          target={target.treasury}
           setCurrent={setCurrentTreasury}
           setTarget={setTargetTreasury}
+          target={target.treasury}
         />
+        <hr className="d-none d-lg-block" />
         <LevelSelectors
+          current={current.smithy}
           label={fortress.buildingSmithy}
           max={20}
-          current={current.smithy}
-          target={target.smithy}
           setCurrent={setCurrentSmithy}
           setTarget={setTargetSmithy}
+          target={target.smithy}
         />
         <LevelSelectors
+          childForm
+          current={current.soldier}
           label={fortress.unitSoldier}
           max={{
             current: current.smithy,
             target: target.smithy,
           }}
-          current={current.soldier}
-          target={target.soldier}
           setCurrent={setCurrentSoldier}
           setTarget={setTargetSoldier}
-          childForm
+          target={target.soldier}
         />
         <LevelSelectors
+          childForm
+          current={current.archer}
           label={fortress.unitArcher}
           max={{
             current: current.smithy,
             target: target.smithy,
           }}
-          current={current.archer}
-          target={target.archer}
           setCurrent={setCurrentArcher}
           setTarget={setTargetArcher}
-          childForm
+          target={target.archer}
         />
         <LevelSelectors
+          childForm
+          current={current.mage}
           label={fortress.unitMage}
           max={{
             current: current.smithy,
             target: target.smithy,
           }}
-          current={current.mage}
-          target={target.mage}
           setCurrent={setCurrentMage}
           setTarget={setTargetMage}
-          childForm
+          target={target.mage}
         />
+        <hr className="d-none d-lg-block" />
         <LevelSelectors
+          current={current.fortifications}
           label={fortress.buildingFortifications}
           max={20}
-          current={current.fortifications}
-          target={target.fortifications}
           setCurrent={setCurrentFortifications}
           setTarget={setTargetFortifications}
+          target={target.fortifications}
         />
       </div>
       <FortressStats />

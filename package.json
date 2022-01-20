@@ -52,5 +52,5 @@
     "preview": "vite preview",
     "schema": "typescript-json-schema ./src/lang/type.ts ILanguage --required --noExtraProps --out src/lang/schema.json"
   },
-  "version": "1.0.1"
+  "version": "1.0.2"
 }

@@ -4,13 +4,6 @@ export interface ILanguage {
     title: string;
     tools: string;
   };
-  general: {
-    gold: string;
-    wood: string;
-    stone: string;
-    resources: string;
-    count: string;
-  };
   fortress: {
     buildingAcademy: string;
     buildingArchery: string;
@@ -24,12 +17,33 @@ export interface ILanguage {
     buildingSmithy: string;
     buildingTreasury: string;
     buildingWoodcutter: string;
-    title: string;
     description: string;
+    extractionGemTime: string;
+    quartersTimeReduction: string;
+    timeToFill: string;
+    title: string;
+    treasurySlot: string;
     unitArcher: string;
+    unitLimit: string;
     unitMage: string;
     unitSoldier: string;
     upgradeHoK: string;
+  };
+  general: {
+    count: string;
+    day: string;
+    dayShort: string;
+    gold: string;
+    hour: string;
+    hourShort: string;
+    max: string;
+    minute: string;
+    minuteShort: string;
+    resources: string;
+    second: string;
+    secondShort: string;
+    stone: string;
+    wood: string;
   };
 }
 

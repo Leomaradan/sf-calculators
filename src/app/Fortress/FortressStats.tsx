@@ -3,49 +3,49 @@ import type { IFortressState } from '../../features/fortress/types';
 import { useAppSelector } from '../../features/hooks';
 import {
   academyLevel,
+  archerUpgradeLevel,
   archeryLevel,
   barracksLevel,
+  fortificationLevel,
   fortressLevel,
+  hallOfKnightsUpgradeLevel,
   mageTowerLevel,
+  mageUpgradeLevel,
   mineLevel,
   quarryLevel,
   quartersLevel,
   smithyLevel,
+  soldierUpgradeLevel,
   treasuryLevel,
   woodcutterLevel,
-  archerUpgradeLevel,
-  hallOfKnightsUpgradeLevel,
-  mageUpgradeLevel,
-  soldierUpgradeLevel,
-  fortificationLevel,
 } from './tables';
 
 import type { ITable, IUpgrade } from './tables/type';
 
-import { NumberDisplay } from '../components/NumberDisplay';
 import { useLanguage } from '../../lang/LanguageContext';
 import LabelUcFirst from '../components/LabelUcFirst';
+import NumberDisplay from '../components/NumberDisplay';
 
 const getRange = (current: number, target: number) =>
   new Array(target - current).fill(0).map((_, i) => i + current + 1);
 
 const tables: Record<keyof IFortressState, ITable[] | IUpgrade[]> = {
   academy: academyLevel,
+  archer: archerUpgradeLevel,
   archery: archeryLevel,
   barracks: barracksLevel,
-  fortress: fortressLevel,
   fortifications: fortificationLevel,
+  fortress: fortressLevel,
+  hok: hallOfKnightsUpgradeLevel,
+  mage: mageUpgradeLevel,
   mageTower: mageTowerLevel,
   mine: mineLevel,
   quarry: quarryLevel,
   quarters: quartersLevel,
   smithy: smithyLevel,
+  soldier: soldierUpgradeLevel,
   treasury: treasuryLevel,
   woodcutter: woodcutterLevel,
-  archer: archerUpgradeLevel,
-  hok: hallOfKnightsUpgradeLevel,
-  mage: mageUpgradeLevel,
-  soldier: soldierUpgradeLevel,
 };
 
 const FortressStats = () => {
@@ -79,12 +79,12 @@ const FortressStats = () => {
 
     return {
       gold,
-      wood,
       stone,
+      wood,
     };
   }, [fortress]);
 
-  const { gold, wood, stone } = fortressResources;
+  const { gold, stone, wood } = fortressResources;
 
   return (
     <>

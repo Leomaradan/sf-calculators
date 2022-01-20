@@ -1,32 +1,32 @@
 import type { ITable } from './type';
 
 export const mineLevel: ITable[] = [
-  { level: 1, gold: 15, wood: 50, stone: 17 },
-  { level: 2, gold: 30, wood: 200, stone: 67 },
-  { level: 3, gold: 45, wood: 587, stone: 187 },
-  { level: 4, gold: 60, wood: 1467, stone: 444 },
-  { level: 5, gold: 75, wood: 3333, stone: 1067 },
-  { level: 6, gold: 90, wood: 8000, stone: 2667 },
-  { level: 7, gold: 105, wood: 17889, stone: 5911 },
-  { level: 8, gold: 120, wood: 36267, stone: 12373 },
-  { level: 9, gold: 135, wood: 76500, stone: 25500 },
-  { level: 10, gold: 150, wood: 184800, stone: 60000 },
-  { level: 11, gold: 165, wood: 414000, stone: 133200 },
-  { level: 12, gold: 180, wood: 830400, stone: 273600 },
-  { level: 13, gold: 195, wood: 1872000, stone: 619200 },
-  { level: 14, gold: 210, wood: 3744000, stone: 1248000 },
-  { level: 15, gold: 225, wood: 7200000, stone: 2340000 },
-  { level: 16, gold: 240, wood: 15120000, stone: 5040000 },
-  { level: 17, gold: 255, wood: 27350000, stone: 9000000 },
-  { level: 18, gold: 270, wood: 50000000, stone: 17500000 },
-  { level: 19, gold: 285, wood: 90000000, stone: 30000000 },
-  { level: 20, gold: 300, wood: 165000000, stone: 54000000 },
+  { gold: 15, level: 1, stone: 17, wood: 50 },
+  { gold: 30, level: 2, stone: 67, wood: 200 },
+  { gold: 45, level: 3, stone: 187, wood: 587 },
+  { gold: 60, level: 4, stone: 444, wood: 1467 },
+  { gold: 75, level: 5, stone: 1067, wood: 3333 },
+  { gold: 90, level: 6, stone: 2667, wood: 8000 },
+  { gold: 105, level: 7, stone: 5911, wood: 17889 },
+  { gold: 120, level: 8, stone: 12373, wood: 36267 },
+  { gold: 135, level: 9, stone: 25500, wood: 76500 },
+  { gold: 150, level: 10, stone: 60000, wood: 184800 },
+  { gold: 165, level: 11, stone: 133200, wood: 414000 },
+  { gold: 180, level: 12, stone: 273600, wood: 830400 },
+  { gold: 195, level: 13, stone: 619200, wood: 1872000 },
+  { gold: 210, level: 14, stone: 1248000, wood: 3744000 },
+  { gold: 225, level: 15, stone: 2340000, wood: 7200000 },
+  { gold: 240, level: 16, stone: 5040000, wood: 15120000 },
+  { gold: 255, level: 17, stone: 9000000, wood: 27350000 },
+  { gold: 270, level: 18, stone: 17500000, wood: 50000000 },
+  { gold: 285, level: 19, stone: 30000000, wood: 90000000 },
+  { gold: 300, level: 20, stone: 54000000, wood: 165000000 },
 ];
 
 /**
  * Extraction time. First index is mine level (starting with 1), second index is quarter level
  */
-export const extractionTimeMatrice: number[][] = [
+export const extractionTimeMatrix: number[][] = [
   [60, 57, 54, 51, 48, 45, 42, 39, 36, 33, 30, 27, 24, 21, 18, 15],
   [120, 114, 108, 102, 96, 90, 84, 78, 72, 66, 60, 54, 48, 42, 36, 30],
   [180, 171, 162, 153, 144, 135, 126, 117, 108, 99, 90, 81, 72, 63, 54, 45],

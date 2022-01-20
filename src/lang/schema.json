@@ -1,141 +1,188 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "additionalProperties": false,
-    "properties": {
-        "app": {
-            "additionalProperties": false,
-            "properties": {
-                "home": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "tools": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "home",
-                "title",
-                "tools"
-            ],
-            "type": "object"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "app": {
+      "additionalProperties": false,
+      "properties": {
+        "home": {
+          "type": "string"
         },
-        "fortress": {
-            "additionalProperties": false,
-            "properties": {
-                "buildingAcademy": {
-                    "type": "string"
-                },
-                "buildingArchery": {
-                    "type": "string"
-                },
-                "buildingBarracks": {
-                    "type": "string"
-                },
-                "buildingFortifications": {
-                    "type": "string"
-                },
-                "buildingFortress": {
-                    "type": "string"
-                },
-                "buildingMageTower": {
-                    "type": "string"
-                },
-                "buildingMine": {
-                    "type": "string"
-                },
-                "buildingQuarry": {
-                    "type": "string"
-                },
-                "buildingQuarters": {
-                    "type": "string"
-                },
-                "buildingSmithy": {
-                    "type": "string"
-                },
-                "buildingTreasury": {
-                    "type": "string"
-                },
-                "buildingWoodcutter": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "unitArcher": {
-                    "type": "string"
-                },
-                "unitMage": {
-                    "type": "string"
-                },
-                "unitSoldier": {
-                    "type": "string"
-                },
-                "upgradeHoK": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "buildingAcademy",
-                "buildingArchery",
-                "buildingBarracks",
-                "buildingFortifications",
-                "buildingFortress",
-                "buildingMageTower",
-                "buildingMine",
-                "buildingQuarry",
-                "buildingQuarters",
-                "buildingSmithy",
-                "buildingTreasury",
-                "buildingWoodcutter",
-                "description",
-                "title",
-                "unitArcher",
-                "unitMage",
-                "unitSoldier",
-                "upgradeHoK"
-            ],
-            "type": "object"
+        "title": {
+          "type": "string"
         },
-        "general": {
-            "additionalProperties": false,
-            "properties": {
-                "count": {
-                    "type": "string"
-                },
-                "gold": {
-                    "type": "string"
-                },
-                "resources": {
-                    "type": "string"
-                },
-                "stone": {
-                    "type": "string"
-                },
-                "wood": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "count",
-                "gold",
-                "resources",
-                "stone",
-                "wood"
-            ],
-            "type": "object"
+        "tools": {
+          "type": "string"
         }
+      },
+      "required": ["home", "title", "tools"],
+      "type": "object"
     },
-    "required": [
-        "app",
-        "fortress",
-        "general"
-    ],
-    "type": "object"
+    "fortress": {
+      "additionalProperties": false,
+      "properties": {
+        "buildingAcademy": {
+          "type": "string"
+        },
+        "buildingArchery": {
+          "type": "string"
+        },
+        "buildingBarracks": {
+          "type": "string"
+        },
+        "buildingFortifications": {
+          "type": "string"
+        },
+        "buildingFortress": {
+          "type": "string"
+        },
+        "buildingMageTower": {
+          "type": "string"
+        },
+        "buildingMine": {
+          "type": "string"
+        },
+        "buildingQuarry": {
+          "type": "string"
+        },
+        "buildingQuarters": {
+          "type": "string"
+        },
+        "buildingSmithy": {
+          "type": "string"
+        },
+        "buildingTreasury": {
+          "type": "string"
+        },
+        "buildingWoodcutter": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "extractionGemTime": {
+          "type": "string"
+        },
+        "quartersTimeReduction": {
+          "type": "string"
+        },
+        "timeToFill": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "treasurySlot": {
+          "type": "string"
+        },
+        "unitArcher": {
+          "type": "string"
+        },
+        "unitLimit": {
+          "type": "string"
+        },
+        "unitMage": {
+          "type": "string"
+        },
+        "unitSoldier": {
+          "type": "string"
+        },
+        "upgradeHoK": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "buildingAcademy",
+        "buildingArchery",
+        "buildingBarracks",
+        "buildingFortifications",
+        "buildingFortress",
+        "buildingMageTower",
+        "buildingMine",
+        "buildingQuarry",
+        "buildingQuarters",
+        "buildingSmithy",
+        "buildingTreasury",
+        "buildingWoodcutter",
+        "description",
+        "extractionGemTime",
+        "quartersTimeReduction",
+        "timeToFill",
+        "title",
+        "treasurySlot",
+        "unitArcher",
+        "unitLimit",
+        "unitMage",
+        "unitSoldier",
+        "upgradeHoK"
+      ],
+      "type": "object"
+    },
+    "general": {
+      "additionalProperties": false,
+      "properties": {
+        "count": {
+          "type": "string"
+        },
+        "day": {
+          "type": "string"
+        },
+        "dayShort": {
+          "type": "string"
+        },
+        "gold": {
+          "type": "string"
+        },
+        "hour": {
+          "type": "string"
+        },
+        "hourShort": {
+          "type": "string"
+        },
+        "max": {
+          "type": "string"
+        },
+        "minute": {
+          "type": "string"
+        },
+        "minuteShort": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "string"
+        },
+        "second": {
+          "type": "string"
+        },
+        "secondShort": {
+          "type": "string"
+        },
+        "stone": {
+          "type": "string"
+        },
+        "wood": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "count",
+        "day",
+        "dayShort",
+        "gold",
+        "hour",
+        "hourShort",
+        "max",
+        "minute",
+        "minuteShort",
+        "resources",
+        "second",
+        "secondShort",
+        "stone",
+        "wood"
+      ],
+      "type": "object"
+    }
+  },
+  "required": ["app", "fortress", "general"],
+  "type": "object"
 }
-
