@@ -45,8 +45,8 @@ const We = function () {
   new MutationObserver((s) => {
     for (const n of s)
       if (n.type === 'childList')
-        for (const a of n.addedNodes)
-          a.tagName === 'LINK' && a.rel === 'modulepreload' && r(a);
+        for (const i of n.addedNodes)
+          i.tagName === 'LINK' && i.rel === 'modulepreload' && r(i);
   }).observe(document, { childList: !0, subtree: !0 });
   function l(s) {
     const n = {};
@@ -255,7 +255,7 @@ const B = (e) => {
   no = () => $(k).userLanguage,
   o = ke,
   d = Re,
-  i = Me,
+  a = Me,
   K = (e) => {
     const [t, ...l] = e.split('');
     return `${t.toUpperCase()}${l.join('')}`;
@@ -273,11 +273,11 @@ const B = (e) => {
           : e,
       [e, t],
     );
-    return o(i, { children: l });
+    return o(a, { children: l });
   },
   G = ({ children: e, label: t }) => {
     const l = q(() => Math.ceil(1e4 * Math.random()), []);
-    return d(i, {
+    return d(a, {
       children: [
         o('button', {
           className: 'btn btn-secondary',
@@ -309,7 +309,7 @@ const B = (e) => {
     currentLabel: r,
     label: s,
     max: n,
-    setCurrent: a,
+    setCurrent: i,
     setTarget: g,
     target: u,
     targetLabel: c,
@@ -318,7 +318,7 @@ const B = (e) => {
       y = typeof n == 'number' ? n : n.target,
       F = (S) => {
         const T = parseInt(S.currentTarget.value, 10);
-        a(T), T > u && g(T);
+        i(T), T > u && g(T);
       },
       b = (S) => {
         const T = parseInt(S.currentTarget.value, 10);
@@ -351,7 +351,7 @@ const B = (e) => {
               value: l,
             }),
             e &&
-              d(i, {
+              d(a, {
                 children: [
                   o('p', {
                     className: 'd-none d-sm-block',
@@ -384,7 +384,7 @@ const B = (e) => {
               value: u,
             }),
             e &&
-              d(i, {
+              d(a, {
                 children: [
                   o('p', {
                     className: 'd-none d-sm-block',
@@ -409,21 +409,21 @@ const B = (e) => {
   H = 86400,
   R = 3600,
   j = 60,
-  io = (e, t) => {
+  ao = (e, t) => {
     const l = Math.floor(e / H),
       r = Math.floor((e - l * H) / R),
       s = Math.floor((e - r * R - l * H) / j),
       n = e - l * H - r * R - s * j;
-    let a = r.toString(),
+    let i = r.toString(),
       g = s.toString(),
       u = n.toString();
-    r < 10 && e >= H && (a = `0${a}`),
+    r < 10 && e >= H && (i = `0${i}`),
       s < 10 && e >= R && (g = `0${g}`),
       n < 10 && e >= j && (u = `0${u}`);
     const c = [];
     return (
       l !== 0 && c.push(`${l}${t.general.dayShort}`),
-      r !== 0 && c.push(`${a}${t.general.hourShort}`),
+      r !== 0 && c.push(`${i}${t.general.hourShort}`),
       s !== 0 && c.push(`${g}${t.general.minuteShort}`),
       n !== 0 && c.push(`${u}${t.general.secondShort}`),
       c.join(' ')
@@ -433,9 +433,9 @@ const B = (e) => {
     const l = f();
     if (typeof e == 'number') {
       const r = t ? 60 * e : e;
-      return o(i, { children: io(r, l) });
+      return o(a, { children: ao(r, l) });
     }
-    return o(i, { children: e });
+    return o(a, { children: e });
   },
   W = [
     { level: 1, gold: 7, wood: 7, stone: 9, timeToFill: 60 },
@@ -459,7 +459,7 @@ const B = (e) => {
     { level: 19, gold: 133, wood: 18e6, stone: 24e6, timeToFill: 660 },
     { level: 20, gold: 140, wood: 33e6, stone: 43e6, timeToFill: 720 },
   ],
-  ao = [
+  io = [
     { level: 1, gold: 15, wood: 30, stone: 13 },
     { level: 2, gold: 30, wood: 120, stone: 53 },
     { level: 3, gold: 45, wood: 352, stone: 149 },
@@ -1096,8 +1096,8 @@ const B = (e) => {
         fortress: { timeToFill: l },
       } = f();
     return e === 0
-      ? o(i, {})
-      : d(i, {
+      ? o(a, {})
+      : d(a, {
           children: [
             o(w, { children: l }),
             ' :',
@@ -1109,8 +1109,8 @@ const B = (e) => {
   p = ({ children: e }) => {
     const t = no();
     return typeof e == 'number'
-      ? o(i, { children: Intl.NumberFormat(t).format(e) })
-      : o(i, { children: e });
+      ? o(a, { children: Intl.NumberFormat(t).format(e) })
+      : o(a, { children: e });
   },
   bo = ({ value: e }) => {
     var r, s;
@@ -1123,19 +1123,21 @@ const B = (e) => {
         fortress: { unitLimit: l },
       } = f();
     return e === 0
-      ? o(i, {})
-      : d(i, {
+      ? o(a, {})
+      : d(a, {
           children: [o(w, { children: l }), ' :', ' ', o(p, { children: t })],
         });
   },
   yo = (e = 0, t = 0) =>
-    e === 0 && t === 0 ? [] : new Array(t - e).fill(0).map((l, r) => r + e + 1),
+    e === 0 && t === 0
+      ? []
+      : new Array(Math.max(0, t - e)).fill(0).map((l, r) => r + e + 1),
   To = {
     academy: W,
     archer: ho,
     archery: z,
     barracks: J,
-    fortifications: ao,
+    fortifications: io,
     fortress: co,
     hok: go,
     mage: fo,
@@ -1149,10 +1151,10 @@ const B = (e) => {
     woodcutter: X,
   },
   So = () => {
-    const e = A((a) => a.fortress),
+    const e = A((i) => i.fortress),
       { general: t } = f(),
       l = q(() => {
-        let a = 0,
+        let i = 0,
           g = 0,
           u = 0;
         return (
@@ -1160,14 +1162,14 @@ const B = (e) => {
             const h = c;
             yo(e.current[h], e.target[h]).forEach((F) => {
               const b = To[h].find((S) => S.level === F);
-              b && (b.gold && (a += b.gold), (g += b.wood), (u += b.stone));
+              b && (b.gold && (i += b.gold), (g += b.wood), (u += b.stone));
             });
           }),
-          { gold: a, stone: u, wood: g }
+          { gold: i, stone: u, wood: g }
         );
       }, [e]),
       { gold: r, stone: s, wood: n } = l;
-    return o(i, {
+    return o(a, {
       children: d('table', {
         className: 'table',
         children: [
@@ -1222,14 +1224,14 @@ const B = (e) => {
   },
   Fo = ({ type: e, value: t }) => {
     var n;
-    const l = (n = A((a) => a.fortress[e].quarters)) != null ? n : 0,
+    const l = (n = A((i) => i.fortress[e].quarters)) != null ? n : 0,
       r = t > 0 ? vo[t - 1][l] : 0,
       {
         fortress: { extractionGemTime: s },
       } = f();
     return t === 0
-      ? o(i, {})
-      : d(i, {
+      ? o(a, {})
+      : d(a, {
           children: [
             o(w, { children: s }),
             ' :',
@@ -1249,8 +1251,8 @@ const B = (e) => {
         fortress: { unitLimit: l },
       } = f();
     return e === 0
-      ? o(i, {})
-      : d(i, {
+      ? o(a, {})
+      : d(a, {
           children: [o(w, { children: l }), ' :', ' ', o(p, { children: t })],
         });
   },
@@ -1262,18 +1264,18 @@ const B = (e) => {
       s = (l / r) * 3600,
       {
         fortress: { timeToFill: n },
-        general: { hourShort: a, max: g, stone: u },
+        general: { hourShort: i, max: g, stone: u },
       } = f();
     return e === 0
-      ? o(i, {})
-      : d(i, {
+      ? o(a, {})
+      : d(a, {
           children: [
             o(w, { children: u }),
             ' :',
             ' ',
             o(p, { children: r }),
             '/',
-            a,
+            i,
             ', ',
             g,
             ' ',
@@ -1300,8 +1302,8 @@ const B = (e) => {
         fortress: { quartersTimeReduction: l },
       } = f();
     return e === 0
-      ? o(i, {})
-      : d(i, { children: [o(w, { children: l }), ' : ', t, '%'] });
+      ? o(a, {})
+      : d(a, { children: [o(w, { children: l }), ' : ', t, '%'] });
   },
   Ho = ({ value: e }) => {
     var r, s;
@@ -1314,8 +1316,8 @@ const B = (e) => {
         fortress: { unitLimit: l },
       } = f();
     return e === 0
-      ? o(i, {})
-      : d(i, {
+      ? o(a, {})
+      : d(a, {
           children: [o(w, { children: l }), ' :', ' ', o(p, { children: t })],
         });
   },
@@ -1330,8 +1332,8 @@ const B = (e) => {
         fortress: { treasurySlot: l },
       } = f();
     return e === 0
-      ? o(i, {})
-      : d(i, { children: [o(w, { children: l }), ' : ', t] });
+      ? o(a, {})
+      : d(a, { children: [o(w, { children: l }), ' : ', t] });
   },
   ko = ({ value: e }) => {
     var c, h;
@@ -1341,18 +1343,18 @@ const B = (e) => {
       s = (l / r) * 3600,
       {
         fortress: { timeToFill: n },
-        general: { hourShort: a, max: g, wood: u },
+        general: { hourShort: i, max: g, wood: u },
       } = f();
     return e === 0
-      ? o(i, {})
-      : d(i, {
+      ? o(a, {})
+      : d(a, {
           children: [
             o(w, { children: u }),
             ' :',
             ' ',
             o(p, { children: r }),
             '/',
-            a,
+            i,
             ', ',
             g,
             ' ',
@@ -1379,7 +1381,7 @@ const B = (e) => {
       l = Ve(),
       { fortress: r } = f(),
       [s, n] = m(l, 'academy'),
-      [a, g] = m(l, 'archery'),
+      [i, g] = m(l, 'archery'),
       [u, c] = m(l, 'barracks'),
       [h, y] = m(l, 'fortifications'),
       [F, b] = m(l, 'fortress'),
@@ -1387,14 +1389,14 @@ const B = (e) => {
       [oe, te] = m(l, 'mine'),
       [le, re] = m(l, 'quarry'),
       [se, ne] = m(l, 'quarters'),
-      [de, ie] = m(l, 'smithy'),
-      [ae, ce] = m(l, 'treasury'),
+      [de, ae] = m(l, 'smithy'),
+      [ie, ce] = m(l, 'treasury'),
       [ge, ue] = m(l, 'woodcutter'),
       [ve, me] = m(l, 'hok'),
       [we, he] = m(l, 'soldier'),
       [fe, pe] = m(l, 'archer'),
       [be, ye] = m(l, 'mage');
-    return d(i, {
+    return d(a, {
       children: [
         d('div', {
           className: 'container',
@@ -1471,7 +1473,7 @@ const B = (e) => {
               current: e.archery,
               label: r.buildingArchery,
               max: 15,
-              setCurrent: a,
+              setCurrent: i,
               setTarget: g,
               target: t.archery,
             }),
@@ -1499,7 +1501,7 @@ const B = (e) => {
               current: e.treasury,
               label: r.buildingTreasury,
               max: 20,
-              setCurrent: ae,
+              setCurrent: ie,
               setTarget: ce,
               target: t.treasury,
             }),
@@ -1509,7 +1511,7 @@ const B = (e) => {
               label: r.buildingSmithy,
               max: 20,
               setCurrent: de,
-              setTarget: ie,
+              setTarget: ae,
               target: t.smithy,
             }),
             o(v, {
@@ -1681,8 +1683,8 @@ const Po = ({ children: e, defaultLanguage: t }) => {
         allDictionary: C,
         dictionary: C[r],
         userLanguage: r,
-        userLanguageChange: (a) => {
-          const g = B(a);
+        userLanguageChange: (i) => {
+          const g = B(i);
           s(g);
         },
       };
