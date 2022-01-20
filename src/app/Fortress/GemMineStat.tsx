@@ -20,6 +20,8 @@ const GemMineStat = ({
     fortress: { extractionGemTime },
   } = useLanguage();
 
+  if (mine === 0) return <></>;
+
   return (
     <>
       <LabelUcFirst>{extractionGemTime}</LabelUcFirst> :{' '}

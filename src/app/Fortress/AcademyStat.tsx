@@ -9,6 +9,8 @@ const AcademyStat = ({ value }: { value: number }) => {
     fortress: { timeToFill },
   } = useLanguage();
 
+  if (value === 0) return <></>;
+
   return (
     <>
       <LabelUcFirst>{timeToFill}</LabelUcFirst> :{' '}

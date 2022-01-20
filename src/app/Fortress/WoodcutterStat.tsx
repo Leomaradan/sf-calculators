@@ -16,6 +16,8 @@ const WoodcutterStat = ({ value }: { value: number }) => {
     general: { hourShort, max: maxLabel, wood },
   } = useLanguage();
 
+  if (value === 0) return <></>;
+
   return (
     <>
       <LabelUcFirst>{wood}</LabelUcFirst> :{' '}

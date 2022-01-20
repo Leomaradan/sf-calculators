@@ -8,6 +8,8 @@ const TreasuryStats = ({ value }: { value: number }) => {
     fortress: { treasurySlot },
   } = useLanguage();
 
+  if (value === 0) return <></>;
+
   return (
     <>
       <LabelUcFirst>{treasurySlot}</LabelUcFirst> : {slot}

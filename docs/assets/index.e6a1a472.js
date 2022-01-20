@@ -2,33 +2,33 @@ var Se = Object.defineProperty;
 var Q = Object.getOwnPropertySymbols;
 var Fe = Object.prototype.hasOwnProperty,
   Ne = Object.prototype.propertyIsEnumerable;
-var P = (t, e, l) =>
-    e in t
-      ? Se(t, e, { enumerable: !0, configurable: !0, writable: !0, value: l })
-      : (t[e] = l),
-  N = (t, e) => {
-    for (var l in e || (e = {})) Fe.call(e, l) && P(t, l, e[l]);
-    if (Q) for (var l of Q(e)) Ne.call(e, l) && P(t, l, e[l]);
-    return t;
+var P = (e, t, l) =>
+    t in e
+      ? Se(e, t, { enumerable: !0, configurable: !0, writable: !0, value: l })
+      : (e[t] = l),
+  N = (e, t) => {
+    for (var l in t || (t = {})) Fe.call(t, l) && P(e, l, t[l]);
+    if (Q) for (var l of Q(t)) Ne.call(t, l) && P(e, l, t[l]);
+    return e;
   };
 import {
   c as Ce,
-  a as Le,
-  r as He,
-  p as xe,
-  b as ke,
-  d as Re,
-  e as Me,
-  f as $e,
-  D as qe,
+  u as Le,
+  a as He,
+  D as xe,
   F as $,
-  j as Ae,
-  g as Ue,
-  h as je,
-  y as De,
+  j as ke,
+  b as Re,
+  d as Me,
+  e as q,
   L as x,
-  i as q,
-  u as Qe,
+  y as $e,
+  f as qe,
+  r as Ae,
+  p as Ue,
+  g as je,
+  h as De,
+  i as Qe,
   k as Pe,
   l as Ie,
   P as Oe,
@@ -37,16 +37,16 @@ import {
   R as Ke,
   n as I,
   S as Ge,
-} from './vendor.fd504d52.js';
+} from './vendor.5fcd8770.js';
 const We = function () {
-  const e = document.createElement('link').relList;
-  if (e && e.supports && e.supports('modulepreload')) return;
+  const t = document.createElement('link').relList;
+  if (t && t.supports && t.supports('modulepreload')) return;
   for (const s of document.querySelectorAll('link[rel="modulepreload"]')) r(s);
   new MutationObserver((s) => {
     for (const n of s)
       if (n.type === 'childList')
-        for (const a of n.addedNodes)
-          a.tagName === 'LINK' && a.rel === 'modulepreload' && r(a);
+        for (const i of n.addedNodes)
+          i.tagName === 'LINK' && i.rel === 'modulepreload' && r(i);
   }).observe(document, { childList: !0, subtree: !0 });
   function l(s) {
     const n = {};
@@ -111,49 +111,20 @@ const _e = {
     name: 'fortress',
     initialState: _e,
     reducers: {
-      setCurrent: (t, e) => {
-        t.current = N(N({}, t.current), e.payload);
+      setCurrent: (e, t) => {
+        e.current = N(N({}, e.current), t.payload);
       },
-      setTarget: (t, e) => {
-        t.target = N(N({}, t.target), e.payload);
+      setTarget: (e, t) => {
+        e.target = N(N({}, e.target), t.payload);
       },
     },
   }),
   { setCurrent: Ye, setTarget: ze } = O.actions;
 var Je = O.reducer;
-const Ve = Le({ fortress: Je }),
-  Xe = { key: 'root', storage: Me },
-  Ze = He.exports.createLogger({
-    predicate: (t, e) => !e.type.includes('persist/'),
-    collapsed: !0,
-    duration: !0,
-    diff: !0,
-  }),
-  eo = xe(Xe, Ve),
-  oo = ke(Ze),
-  B = Re(eo, void 0, oo);
-var to = () => {
-  const t = $e(B);
-  return { store: B, persistor: t };
-};
-const lo = { home: 'Home', title: 'S & F Calculator', tools: 'Tools' },
-  ro = {
-    count: 'count',
-    gold: 'gold',
-    resources: 'resources',
-    stone: 'stone',
-    wood: 'wood',
-    day: 'day',
-    dayShort: 'd',
-    hour: 'hour',
-    hourShort: 'h',
-    minute: 'minute',
-    minuteShort: 'm',
-    second: 'second',
-    secondShort: 's',
-    max: 'max',
-  },
-  so = {
+const Ve = () => Le(),
+  A = He,
+  Xe = { home: 'Home', title: 'S & F Calculator', tools: 'Tools' },
+  Ze = {
     buildingAcademy: 'academy',
     buildingArchery: 'archery guild',
     buildingBarracks: 'barracks',
@@ -166,37 +137,37 @@ const lo = { home: 'Home', title: 'S & F Calculator', tools: 'Tools' },
     buildingSmithy: 'smithy',
     buildingTreasury: 'treasury',
     buildingWoodcutter: "woodcutter's hut",
-    title: 'Fortress',
     description: 'Fortress construction planner',
+    extractionGemTime: 'gem extraction time',
+    quartersTimeReduction: 'time reduction',
+    timeToFill: 'time to fill',
+    title: 'Fortress',
+    treasurySlot: 'slot',
     unitArcher: 'archer',
+    unitLimit: 'unit limit',
     unitMage: 'mage',
     unitSoldier: 'soldier',
     upgradeHoK: 'hall of knights',
-    timeToFill: 'time to fill',
-    quartersTimeReduction: 'time reduction',
-    treasurySlot: 'slot',
-    extractionGemTime: 'gem extraction time',
-    unitLimit: 'unit limit',
-  };
-var no = { app: lo, general: ro, fortress: so };
-const ao = { home: 'Accueil', title: 'S & F Calculateur', tools: 'Outils' },
-  io = {
-    count: 'nombre',
-    gold: 'or',
-    resources: 'ressources',
-    stone: 'pierre',
-    wood: 'bois',
-    day: 'jour',
-    dayShort: 'j',
-    hour: 'heur',
+  },
+  eo = {
+    count: 'count',
+    day: 'day',
+    dayShort: 'd',
+    gold: 'gold',
+    hour: 'hour',
     hourShort: 'h',
+    max: 'max',
     minute: 'minute',
     minuteShort: 'm',
-    second: 'seconde',
+    resources: 'resources',
+    second: 'second',
     secondShort: 's',
-    max: 'max',
-  },
-  co = {
+    stone: 'stone',
+    wood: 'wood',
+  };
+var oo = { app: Xe, fortress: Ze, general: eo };
+const to = { home: 'Accueil', title: 'S & F Calculateur', tools: 'Outils' },
+  lo = {
     buildingAcademy: 'acad\xE9mie',
     buildingArchery: 'guilde des archers',
     buildingBarracks: 'caserne',
@@ -209,54 +180,70 @@ const ao = { home: 'Accueil', title: 'S & F Calculateur', tools: 'Outils' },
     buildingSmithy: 'forge',
     buildingTreasury: 'banque',
     buildingWoodcutter: 'camp de b\xFBcherons',
-    title: 'Forteresse',
     description: 'Planificateur de d\xE9veloppement de forteresse',
+    extractionGemTime: "temps d'extraction de gemmes",
+    quartersTimeReduction: 'r\xE9duction du temps de construction',
+    timeToFill: 'temps pour remplir',
+    title: 'Forteresse',
+    treasurySlot: 'emplacement',
     unitArcher: 'archer',
+    unitLimit: "limite d'unit\xE9s",
     unitMage: 'mage de combat',
     unitSoldier: 'soldat',
     upgradeHoK: 'salle des chevaliers',
-    timeToFill: 'temps pour remplir',
-    quartersTimeReduction: 'r\xE9duction du temps de construction',
-    extractionGemTime: "temps d'extraction de gemmes",
-    treasurySlot: 'emplacement',
-    unitLimit: "limite d'unit\xE9s",
+  },
+  ro = {
+    count: 'nombre',
+    day: 'jour',
+    dayShort: 'j',
+    gold: 'or',
+    hour: 'heur',
+    hourShort: 'h',
+    max: 'max',
+    minute: 'minute',
+    minuteShort: 'm',
+    resources: 'ressources',
+    second: 'seconde',
+    secondShort: 's',
+    stone: 'pierre',
+    wood: 'bois',
   };
-var go = { app: ao, general: io, fortress: co };
-const C = { 'en-US': no, 'fr-FR': go },
-  A = Object.keys(C),
+var so = { app: to, fortress: lo, general: ro };
+const C = { 'en-US': oo, 'fr-FR': so },
+  U = Object.keys(C),
   L = {};
-A.forEach((t) => {
-  L[t.substring(0, 2)] = t;
+U.forEach((e) => {
+  L[e.substring(0, 2)] = e;
 });
-const E = (t) => {
-    if (t) {
-      const l = t.substring(0, 2);
-      if (A.includes(t)) return t;
+const B = (e) => {
+    if (e) {
+      const l = e.substring(0, 2);
+      if (U.includes(e)) return e;
       if (L[l]) return L[l];
     }
-    const e = Array.isArray(window.navigator.language)
+    const t = Array.isArray(window.navigator.language)
       ? window.navigator.language
       : [window.navigator.language];
-    for (const l of e) {
+    for (const l of t) {
       const r = l,
         s = r.substring(0, 2);
-      if (A.includes(r)) return r;
+      if (U.includes(r)) return r;
       if (L[s]) return L[s];
     }
     return 'en-US';
   },
-  k = qe({
+  k = xe({
     allDictionary: C,
     dictionary: C['en-US'],
     userLanguage: 'en-US',
     userLanguageChange: () => {},
   }),
   f = () => $(k).dictionary,
-  K = () => {
-    const t = $(k);
-    return (e) => {
-      const l = e.split('.');
-      let r = t.dictionary;
+  E = () => {
+    const e = $(k);
+    return (t) => {
+      const l = t.split('.');
+      let r = e.dictionary;
       return (
         l.forEach((s) => {
           r[s] !== void 0 && (r = r[s]);
@@ -265,150 +252,45 @@ const E = (t) => {
       );
     };
   },
-  uo = () => $(k).userLanguage,
-  o = Ae,
-  d = Ue,
-  c = je,
-  vo = ({ tools: t }) => {
-    const { app: e } = f(),
-      l = K();
-    return (
-      De(() => {
-        document.title = e.title;
-      }, [e.title]),
-      o('nav', {
-        className: 'navbar navbar-expand-lg navbar-dark fixed-top bg-dark',
-        children: d('div', {
-          className: 'container-fluid',
-          children: [
-            o(x, { className: 'navbar-brand', to: '/', children: e.title }),
-            o('button', {
-              className: 'navbar-toggler',
-              type: 'button',
-              'data-bs-toggle': 'collapse',
-              'data-bs-target': '#navbarCollapse',
-              'aria-controls': 'navbarCollapse',
-              'aria-expanded': 'false',
-              'aria-label': 'Toggle navigation',
-              children: o('span', { className: 'navbar-toggler-icon' }),
-            }),
-            o('div', {
-              className: 'collapse navbar-collapse',
-              id: 'navbarCollapse',
-              children: d('ul', {
-                className: 'navbar-nav me-auto mb-2 mb-md-0',
-                children: [
-                  o('li', {
-                    className: 'nav-item',
-                    children: o(x, {
-                      className: 'nav-link active',
-                      'aria-current': 'page',
-                      to: '/',
-                      children: e.home,
-                    }),
-                  }),
-                  d('li', {
-                    className: 'nav-item dropdown',
-                    children: [
-                      o('a', {
-                        className: 'nav-link dropdown-toggle',
-                        href: '#',
-                        id: 'dropdownNav',
-                        'data-bs-toggle': 'dropdown',
-                        'aria-expanded': 'false',
-                        children: e.tools,
-                      }),
-                      o('ul', {
-                        className: 'dropdown-menu',
-                        'aria-labelledby': 'dropdownNav',
-                        children: t.map(({ route: r, title: s }) =>
-                          o(
-                            'li',
-                            {
-                              children: o(x, {
-                                className: 'dropdown-item',
-                                to: r,
-                                children: l(s),
-                              }),
-                            },
-                            r,
-                          ),
-                        ),
-                      }),
-                    ],
-                  }),
-                ],
-              }),
-            }),
-          ],
-        }),
-      })
-    );
-  };
-const mo = ({ tools: t }) => {
-    const e = K();
-    return o('div', {
-      className: 'row row-cols-1 row-cols-md-2 g-4',
-      children: t.map(({ route: l, title: r, description: s }) =>
-        o(
-          'div',
-          {
-            className: 'col',
-            children: o('div', {
-              className: 'card',
-              children: d('div', {
-                className: 'card-body',
-                children: [
-                  o('h5', { className: 'card-title', children: e(r) }),
-                  o('p', { className: 'card-text', children: e(s) }),
-                  o(x, {
-                    to: l,
-                    children: o('i', { className: 'bi bi-calculator' }),
-                  }),
-                ],
-              }),
-            }),
-          },
-          l,
-        ),
-      ),
-    });
+  no = () => $(k).userLanguage,
+  o = ke,
+  d = Re,
+  a = Me,
+  K = (e) => {
+    const [t, ...l] = e.split('');
+    return `${t.toUpperCase()}${l.join('')}`;
   },
-  G = (t) => {
-    const [e, ...l] = t.split('');
-    return `${e.toUpperCase()}${l.join('')}`;
-  },
-  m = ({ word: t, children: e }) => {
+  w = ({ children: e, word: t }) => {
     const l = q(
       () =>
         typeof e == 'string'
           ? t !== !0
-            ? G(e)
+            ? K(e)
             : e
                 .split(' ')
-                .map((s) => (s.length > 3 ? G(s) : s))
+                .map((s) => (s.length > 3 ? K(s) : s))
                 .join(' ')
           : e,
       [e, t],
     );
-    return o(c, { children: l });
+    return o(a, { children: l });
   },
-  W = ({ label: t, children: e }) => {
-    const l = q(() => Math.ceil(Math.random() * 1e4), []);
-    return d(c, {
+  G = ({ children: e, label: t }) => {
+    const l = q(() => Math.ceil(1e4 * Math.random()), []);
+    return d(a, {
       children: [
         o('button', {
-          type: 'button',
           className: 'btn btn-secondary',
-          'data-bs-toggle': 'modal',
           'data-bs-target': `#modal${l}`,
+          'data-bs-toggle': 'modal',
+          type: 'button',
           children: t,
         }),
         o('div', {
+          'aria-hidden': 'true',
           className: 'modal fade',
           id: `modal${l}`,
           tabIndex: -1,
-          'aria-hidden': 'true',
           children: o('div', {
             className: 'modal-dialog',
             children: o('div', {
@@ -420,27 +302,27 @@ const mo = ({ tools: t }) => {
       ],
     });
   },
-  u = ({
-    currentLabel: t,
-    max: e,
-    targetLabel: l,
-    current: r,
-    setCurrent: s,
-    setTarget: n,
-    target: a,
-    label: g,
-    childForm: w,
-    additionalStats: i,
+  v = ({
+    additionalStats: e,
+    childForm: t,
+    current: l,
+    currentLabel: r,
+    label: s,
+    max: n,
+    setCurrent: i,
+    setTarget: g,
+    target: u,
+    targetLabel: c,
   }) => {
-    const h = typeof e == 'number' ? e : e.current,
-      y = typeof e == 'number' ? e : e.target,
+    const h = typeof n == 'number' ? n : n.current,
+      y = typeof n == 'number' ? n : n.target,
       F = (S) => {
         const T = parseInt(S.currentTarget.value, 10);
-        s(T), T > a && n(T);
+        i(T), T > u && g(T);
       },
       b = (S) => {
         const T = parseInt(S.currentTarget.value, 10);
-        T >= r && n(T);
+        T >= l && g(T);
       };
     return d('div', {
       className: 'row level-selector',
@@ -450,8 +332,8 @@ const mo = ({ tools: t }) => {
           children: d('label', {
             className: 'form-label',
             children: [
-              w && o('i', { className: 'bi bi-arrow-return-right' }),
-              o(m, { children: g }),
+              t && o('i', { className: 'bi bi-arrow-return-right' }),
+              o(w, { children: s }),
             ],
           }),
         }),
@@ -459,29 +341,29 @@ const mo = ({ tools: t }) => {
           className: 'col-lg-4 col-md-12',
           children: [
             o('input', {
-              type: 'number',
-              min: '0',
-              max: h,
-              value: r,
-              onInput: F,
+              'aria-label': r,
               className: 'form-control',
-              placeholder: t,
-              'aria-label': t,
+              max: h,
+              min: '0',
+              onInput: F,
+              placeholder: r,
+              type: 'number',
+              value: l,
             }),
-            i &&
-              d(c, {
+            e &&
+              d(a, {
                 children: [
                   o('p', {
                     className: 'd-none d-sm-block',
                     children: o('small', {
-                      children: o(i, { value: r, type: 'current' }),
+                      children: o(e, { type: 'current', value: l }),
                     }),
                   }),
                   o('div', {
                     className: 'd-block d-sm-none',
-                    children: o(W, {
+                    children: o(G, {
                       label: '...',
-                      children: o(i, { value: r, type: 'current' }),
+                      children: o(e, { type: 'current', value: l }),
                     }),
                   }),
                 ],
@@ -492,29 +374,29 @@ const mo = ({ tools: t }) => {
           className: 'col-lg-4 col-md-12',
           children: [
             o('input', {
-              type: 'number',
-              min: r,
-              max: y,
-              value: a,
-              onInput: b,
+              'aria-label': c,
               className: 'form-control',
-              placeholder: l,
-              'aria-label': l,
+              max: y,
+              min: l,
+              onInput: b,
+              placeholder: c,
+              type: 'number',
+              value: u,
             }),
-            i &&
-              d(c, {
+            e &&
+              d(a, {
                 children: [
                   o('p', {
                     className: 'd-none d-sm-block',
                     children: o('small', {
-                      children: o(i, { value: a, type: 'target' }),
+                      children: o(e, { type: 'target', value: u }),
                     }),
                   }),
                   o('div', {
                     className: 'd-block d-sm-none',
-                    children: o(W, {
+                    children: o(G, {
                       label: '...',
-                      children: o(i, { value: a, type: 'target' }),
+                      children: o(e, { type: 'target', value: u }),
                     }),
                   }),
                 ],
@@ -524,9 +406,38 @@ const mo = ({ tools: t }) => {
       ],
     });
   },
-  wo = () => Qe(),
-  U = Pe,
-  _ = [
+  H = 86400,
+  R = 3600,
+  j = 60,
+  ao = (e, t) => {
+    const l = Math.floor(e / H),
+      r = Math.floor((e - l * H) / R),
+      s = Math.floor((e - r * R - l * H) / j),
+      n = e - l * H - r * R - s * j;
+    let i = r.toString(),
+      g = s.toString(),
+      u = n.toString();
+    r < 10 && e >= H && (i = `0${i}`),
+      s < 10 && e >= R && (g = `0${g}`),
+      n < 10 && e >= j && (u = `0${u}`);
+    const c = [];
+    return (
+      l !== 0 && c.push(`${l}${t.general.dayShort}`),
+      r !== 0 && c.push(`${i}${t.general.hourShort}`),
+      s !== 0 && c.push(`${g}${t.general.minuteShort}`),
+      n !== 0 && c.push(`${u}${t.general.secondShort}`),
+      c.join(' ')
+    );
+  },
+  M = ({ children: e, minutes: t }) => {
+    const l = f();
+    if (typeof e == 'number') {
+      const r = t ? 60 * e : e;
+      return o(a, { children: ao(r, l) });
+    }
+    return o(a, { children: e });
+  },
+  W = [
     { level: 1, gold: 7, wood: 7, stone: 9, timeToFill: 60 },
     { level: 2, gold: 14, wood: 28, stone: 37, timeToFill: 66 },
     { level: 3, gold: 21, wood: 81, stone: 103, timeToFill: 72 },
@@ -548,7 +459,7 @@ const mo = ({ tools: t }) => {
     { level: 19, gold: 133, wood: 18e6, stone: 24e6, timeToFill: 660 },
     { level: 20, gold: 140, wood: 33e6, stone: 43e6, timeToFill: 720 },
   ],
-  ho = [
+  io = [
     { level: 1, gold: 15, wood: 30, stone: 13 },
     { level: 2, gold: 30, wood: 120, stone: 53 },
     { level: 3, gold: 45, wood: 352, stone: 149 },
@@ -570,7 +481,7 @@ const mo = ({ tools: t }) => {
     { level: 19, gold: 285, wood: 54e6, stone: 24e6 },
     { level: 20, gold: 300, wood: 99e6, stone: 432e5 },
   ],
-  fo = [
+  co = [
     { level: 1, gold: 10, wood: 0, stone: 0 },
     { level: 2, gold: 20, wood: 150, stone: 50 },
     { level: 3, gold: 30, wood: 440, stone: 140 },
@@ -592,7 +503,7 @@ const mo = ({ tools: t }) => {
     { level: 19, gold: 190, wood: 9e7, stone: 3e7 },
     { level: 20, gold: 200, wood: 165e6, stone: 54e6 },
   ],
-  po = [
+  go = [
     { level: 1, wood: 720, stone: 240 },
     { level: 2, wood: 1408, stone: 448 },
     { level: 3, wood: 2640, stone: 800 },
@@ -614,29 +525,29 @@ const mo = ({ tools: t }) => {
     { level: 19, wood: 132e6, stone: 432e5 },
     { level: 20, wood: 24e7, stone: 8e7 },
   ],
-  bo = [
-    { level: 1, gold: 15, wood: 50, stone: 17 },
-    { level: 2, gold: 30, wood: 200, stone: 67 },
-    { level: 3, gold: 45, wood: 587, stone: 187 },
-    { level: 4, gold: 60, wood: 1467, stone: 444 },
-    { level: 5, gold: 75, wood: 3333, stone: 1067 },
-    { level: 6, gold: 90, wood: 8e3, stone: 2667 },
-    { level: 7, gold: 105, wood: 17889, stone: 5911 },
-    { level: 8, gold: 120, wood: 36267, stone: 12373 },
-    { level: 9, gold: 135, wood: 76500, stone: 25500 },
-    { level: 10, gold: 150, wood: 184800, stone: 6e4 },
-    { level: 11, gold: 165, wood: 414e3, stone: 133200 },
-    { level: 12, gold: 180, wood: 830400, stone: 273600 },
-    { level: 13, gold: 195, wood: 1872e3, stone: 619200 },
-    { level: 14, gold: 210, wood: 3744e3, stone: 1248e3 },
-    { level: 15, gold: 225, wood: 72e5, stone: 234e4 },
-    { level: 16, gold: 240, wood: 1512e4, stone: 504e4 },
-    { level: 17, gold: 255, wood: 2735e4, stone: 9e6 },
-    { level: 18, gold: 270, wood: 5e7, stone: 175e5 },
-    { level: 19, gold: 285, wood: 9e7, stone: 3e7 },
-    { level: 20, gold: 300, wood: 165e6, stone: 54e6 },
+  uo = [
+    { gold: 15, level: 1, stone: 17, wood: 50 },
+    { gold: 30, level: 2, stone: 67, wood: 200 },
+    { gold: 45, level: 3, stone: 187, wood: 587 },
+    { gold: 60, level: 4, stone: 444, wood: 1467 },
+    { gold: 75, level: 5, stone: 1067, wood: 3333 },
+    { gold: 90, level: 6, stone: 2667, wood: 8e3 },
+    { gold: 105, level: 7, stone: 5911, wood: 17889 },
+    { gold: 120, level: 8, stone: 12373, wood: 36267 },
+    { gold: 135, level: 9, stone: 25500, wood: 76500 },
+    { gold: 150, level: 10, stone: 6e4, wood: 184800 },
+    { gold: 165, level: 11, stone: 133200, wood: 414e3 },
+    { gold: 180, level: 12, stone: 273600, wood: 830400 },
+    { gold: 195, level: 13, stone: 619200, wood: 1872e3 },
+    { gold: 210, level: 14, stone: 1248e3, wood: 3744e3 },
+    { gold: 225, level: 15, stone: 234e4, wood: 72e5 },
+    { gold: 240, level: 16, stone: 504e4, wood: 1512e4 },
+    { gold: 255, level: 17, stone: 9e6, wood: 2735e4 },
+    { gold: 270, level: 18, stone: 175e5, wood: 5e7 },
+    { gold: 285, level: 19, stone: 3e7, wood: 9e7 },
+    { gold: 300, level: 20, stone: 54e6, wood: 165e6 },
   ],
-  yo = [
+  vo = [
     [60, 57, 54, 51, 48, 45, 42, 39, 36, 33, 30, 27, 24, 21, 18, 15],
     [120, 114, 108, 102, 96, 90, 84, 78, 72, 66, 60, 54, 48, 42, 36, 30],
     [180, 171, 162, 153, 144, 135, 126, 117, 108, 99, 90, 81, 72, 63, 54, 45],
@@ -709,7 +620,7 @@ const mo = ({ tools: t }) => {
       672, 576, 480,
     ],
   ],
-  Y = [
+  _ = [
     { level: 1, gold: 5, wood: 35, stone: 12, timeReduction: 5 },
     { level: 2, gold: 10, wood: 138, stone: 46, timeReduction: 10 },
     { level: 3, gold: 15, wood: 406, stone: 129, timeReduction: 15 },
@@ -726,7 +637,7 @@ const mo = ({ tools: t }) => {
     { level: 14, gold: 70, wood: 3744e3, stone: 1248e3, timeReduction: 70 },
     { level: 15, gold: 75, wood: 72e5, stone: 234e4, timeReduction: 75 },
   ],
-  z = [
+  Y = [
     { level: 1, gold: 25, wood: 40, stone: 13, slot: 6 },
     { level: 2, gold: 50, wood: 160, stone: 53, slot: 7 },
     { level: 3, gold: 75, wood: 469, stone: 149, slot: 8 },
@@ -745,7 +656,7 @@ const mo = ({ tools: t }) => {
     { level: 16, gold: 375, wood: 0, stone: 0, slot: 21 },
     { level: 17, gold: 375, wood: 576e4, stone: 1872e3, slot: 22 },
   ],
-  J = [
+  z = [
     { level: 1, gold: 5, wood: 41, stone: 7, limit: 2 },
     { level: 2, gold: 10, wood: 164, stone: 27, limit: 4 },
     { level: 3, gold: 15, wood: 480, stone: 76, limit: 6 },
@@ -762,7 +673,7 @@ const mo = ({ tools: t }) => {
     { level: 14, gold: 70, wood: 3744e3, stone: 624e3, limit: 28 },
     { level: 15, gold: 75, wood: 72e5, stone: 117e4, limit: 30 },
   ],
-  V = [
+  J = [
     { level: 1, gold: 4, wood: 20, stone: 14, limit: 3 },
     { level: 2, gold: 8, wood: 82, stone: 55, limit: 6 },
     { level: 3, gold: 12, wood: 240, stone: 153, limit: 9 },
@@ -779,7 +690,7 @@ const mo = ({ tools: t }) => {
     { level: 14, gold: 56, wood: 1872e3, stone: 1248e3, limit: 42 },
     { level: 15, gold: 60, wood: 36e5, stone: 234e4, limit: 45 },
   ],
-  X = [
+  V = [
     { level: 1, gold: 6, wood: 61, stone: 20, limit: 1 },
     { level: 2, gold: 12, wood: 240, stone: 76, limit: 2 },
     { level: 3, gold: 18, wood: 675, stone: 205, limit: 3 },
@@ -796,7 +707,7 @@ const mo = ({ tools: t }) => {
     { level: 14, gold: 84, wood: 54e5, stone: 1755e3, limit: 14 },
     { level: 15, gold: 90, wood: 1134e4, stone: 378e4, limit: 15 },
   ],
-  To = [
+  mo = [
     { level: 1, gold: 4, wood: 25, stone: 8 },
     { level: 2, gold: 8, wood: 100, stone: 33 },
     { level: 3, gold: 12, wood: 293, stone: 93 },
@@ -818,7 +729,7 @@ const mo = ({ tools: t }) => {
     { level: 19, gold: 76, wood: 45e6, stone: 15e6 },
     { level: 20, gold: 80, wood: 825e5, stone: 27e6 },
   ],
-  So = [
+  wo = [
     { level: 1, wood: 270, stone: 210 },
     { level: 2, wood: 528, stone: 392 },
     { level: 3, wood: 990, stone: 700 },
@@ -840,7 +751,7 @@ const mo = ({ tools: t }) => {
     { level: 19, wood: 495e5, stone: 378e5 },
     { level: 20, wood: 9e7, stone: 7e7 },
   ],
-  Fo = [
+  ho = [
     { level: 1, wood: 720, stone: 60 },
     { level: 2, wood: 1408, stone: 112 },
     { level: 3, wood: 2640, stone: 200 },
@@ -862,7 +773,7 @@ const mo = ({ tools: t }) => {
     { level: 19, wood: 132e6, stone: 108e5 },
     { level: 20, wood: 24e7, stone: 2e7 },
   ],
-  No = [
+  fo = [
     { level: 1, wood: 360, stone: 180 },
     { level: 2, wood: 704, stone: 336 },
     { level: 3, wood: 1320, stone: 600 },
@@ -884,7 +795,7 @@ const mo = ({ tools: t }) => {
     { level: 19, wood: 66e6, stone: 324e5 },
     { level: 20, wood: 12e7, stone: 6e7 },
   ],
-  Z = [
+  X = [
     { level: 1, gold: 2, wood: 0, stone: 0, storage: 375, resourceHour: 150 },
     { level: 2, gold: 4, wood: 30, stone: 20, storage: 605, resourceHour: 220 },
     { level: 3, gold: 6, wood: 88, stone: 56, storage: 990, resourceHour: 330 },
@@ -1025,7 +936,7 @@ const mo = ({ tools: t }) => {
       resourceHour: 35e4,
     },
   ],
-  ee = [
+  Z = [
     { level: 1, gold: 3, wood: 22, stone: 0, storage: 125, resourceHour: 50 },
     { level: 2, gold: 6, wood: 90, stone: 16, storage: 192, resourceHour: 70 },
     {
@@ -1173,51 +1084,89 @@ const mo = ({ tools: t }) => {
       resourceHour: 115e3,
     },
   ],
-  p = ({ children: t }) => {
-    const e = uo();
-    return typeof t == 'number'
-      ? o(c, { children: Intl.NumberFormat(e).format(t) })
-      : o(c, { children: t });
+  po = ({ value: e }) => {
+    var r, s;
+    const t =
+        (s =
+          (r = W.find((n) => n.level === e)) == null ? void 0 : r.timeToFill) !=
+        null
+          ? s
+          : 0,
+      {
+        fortress: { timeToFill: l },
+      } = f();
+    return e === 0
+      ? o(a, {})
+      : d(a, {
+          children: [
+            o(w, { children: l }),
+            ' :',
+            ' ',
+            o(M, { minutes: !0, children: t }),
+          ],
+        });
   },
-  Co = (t, e) => new Array(e - t).fill(0).map((l, r) => r + t + 1),
-  Lo = {
-    academy: _,
-    archery: J,
-    barracks: V,
-    fortress: fo,
-    fortifications: ho,
-    mageTower: X,
-    mine: bo,
-    quarry: ee,
-    quarters: Y,
-    smithy: To,
-    treasury: z,
-    woodcutter: Z,
-    archer: Fo,
-    hok: po,
-    mage: No,
-    soldier: So,
+  p = ({ children: e }) => {
+    const t = no();
+    return typeof e == 'number'
+      ? o(a, { children: Intl.NumberFormat(t).format(e) })
+      : o(a, { children: e });
   },
-  Ho = () => {
-    const t = U((a) => a.fortress),
-      { general: e } = f(),
+  bo = ({ value: e }) => {
+    var r, s;
+    const t =
+        (s = (r = z.find((n) => n.level === e)) == null ? void 0 : r.limit) !=
+        null
+          ? s
+          : 0,
+      {
+        fortress: { unitLimit: l },
+      } = f();
+    return e === 0
+      ? o(a, {})
+      : d(a, {
+          children: [o(w, { children: l }), ' :', ' ', o(p, { children: t })],
+        });
+  },
+  yo = (e, t) => new Array(t - e).fill(0).map((l, r) => r + e + 1),
+  To = {
+    academy: W,
+    archer: ho,
+    archery: z,
+    barracks: J,
+    fortifications: io,
+    fortress: co,
+    hok: go,
+    mage: fo,
+    mageTower: V,
+    mine: uo,
+    quarry: Z,
+    quarters: _,
+    smithy: mo,
+    soldier: wo,
+    treasury: Y,
+    woodcutter: X,
+  },
+  So = () => {
+    const e = A((i) => i.fortress),
+      { general: t } = f(),
       l = q(() => {
-        let a = 0,
+        let i = 0,
           g = 0,
-          w = 0;
+          u = 0;
         return (
-          Object.keys(t.current).forEach((i) => {
-            const h = i;
-            Co(t.current[h], t.target[h]).forEach((F) => {
-              const b = Lo[h].find((S) => S.level === F);
-              b && (b.gold && (a += b.gold), (g += b.wood), (w += b.stone));
+          Object.keys(e.current).forEach((c) => {
+            const h = c;
+            yo(e.current[h], e.target[h]).forEach((F) => {
+              const b = To[h].find((S) => S.level === F);
+              b && (b.gold && (i += b.gold), (g += b.wood), (u += b.stone));
             });
           }),
-          { gold: a, wood: g, stone: w }
+          { gold: i, stone: u, wood: g }
         );
-      }, [t]),
-      { gold: r, wood: s, stone: n } = l;
-    return o(c, {
+      }, [e]),
+      { gold: r, stone: s, wood: n } = l;
+    return o(a, {
       children: d('table', {
         className: 'table',
         children: [
@@ -1226,11 +1175,11 @@ const mo = ({ tools: t }) => {
               children: [
                 o('th', {
                   scope: 'col',
-                  children: o(m, { children: e.resources }),
+                  children: o(w, { children: t.resources }),
                 }),
                 o('th', {
                   scope: 'col',
-                  children: o(m, { children: e.count }),
+                  children: o(w, { children: t.count }),
                 }),
               ],
             }),
@@ -1241,7 +1190,7 @@ const mo = ({ tools: t }) => {
                 children: [
                   o('th', {
                     scope: 'row',
-                    children: o(m, { children: e.gold }),
+                    children: o(w, { children: t.gold }),
                   }),
                   o('td', { children: o(p, { children: r }) }),
                 ],
@@ -1250,18 +1199,18 @@ const mo = ({ tools: t }) => {
                 children: [
                   o('th', {
                     scope: 'row',
-                    children: o(m, { children: e.wood }),
+                    children: o(w, { children: t.wood }),
                   }),
-                  o('td', { children: o(p, { children: s }) }),
+                  o('td', { children: o(p, { children: n }) }),
                 ],
               }),
               d('tr', {
                 children: [
                   o('th', {
                     scope: 'row',
-                    children: o(m, { children: e.stone }),
+                    children: o(w, { children: t.stone }),
                   }),
-                  o('td', { children: o(p, { children: n }) }),
+                  o('td', { children: o(p, { children: s }) }),
                 ],
               }),
             ],
@@ -1270,121 +1219,78 @@ const mo = ({ tools: t }) => {
       }),
     });
   },
-  H = 86400,
-  R = 3600,
-  j = 60,
-  xo = (t, e) => {
-    const l = Math.floor(t / H),
-      r = Math.floor((t - l * H) / R),
-      s = Math.floor((t - r * R - l * H) / j),
-      n = t - l * H - r * R - s * j;
-    let a = r.toString(),
-      g = s.toString(),
-      w = n.toString();
-    r < 10 && t >= H && (a = `0${a}`),
-      s < 10 && t >= R && (g = `0${g}`),
-      n < 10 && t >= j && (w = `0${w}`);
-    const i = [];
-    return (
-      l !== 0 && i.push(`${l}${e.general.dayShort}`),
-      r !== 0 && i.push(`${a}${e.general.hourShort}`),
-      s !== 0 && i.push(`${g}${e.general.minuteShort}`),
-      n !== 0 && i.push(`${w}${e.general.secondShort}`),
-      i.join(' ')
-    );
-  },
-  M = ({ children: t, minutes: e }) => {
-    const l = f();
-    if (typeof t == 'number') {
-      const r = e ? t * 60 : t;
-      return o(c, { children: xo(r, l) });
-    }
-    return o(c, { children: t });
-  },
-  ko = ({ value: t }) => {
-    var r, s;
-    const e =
-        (s =
-          (r = _.find((n) => n.level === t)) == null ? void 0 : r.timeToFill) !=
-        null
-          ? s
-          : 0,
+  Fo = ({ type: e, value: t }) => {
+    var n;
+    const l = (n = A((i) => i.fortress[e].quarters)) != null ? n : 0,
+      r = t > 0 ? vo[t - 1][l] : 0,
       {
-        fortress: { timeToFill: l },
+        fortress: { extractionGemTime: s },
       } = f();
-    return d(c, {
-      children: [
-        o(m, { children: l }),
-        ' :',
-        ' ',
-        o(M, { minutes: !0, children: e }),
-      ],
-    });
+    return t === 0
+      ? o(a, {})
+      : d(a, {
+          children: [
+            o(w, { children: s }),
+            ' :',
+            ' ',
+            o(M, { minutes: !0, children: r }),
+          ],
+        });
   },
-  Ro = ({ value: t }) => {
+  No = ({ value: e }) => {
     var r, s;
-    const e =
-        (s = (r = J.find((n) => n.level === t)) == null ? void 0 : r.limit) !=
+    const t =
+        (s = (r = V.find((n) => n.level === e)) == null ? void 0 : r.limit) !=
         null
           ? s
           : 0,
       {
         fortress: { unitLimit: l },
       } = f();
-    return d(c, {
-      children: [o(m, { children: l }), ' :', ' ', o(p, { children: e })],
-    });
+    return e === 0
+      ? o(a, {})
+      : d(a, {
+          children: [o(w, { children: l }), ' :', ' ', o(p, { children: t })],
+        });
   },
-  Mo = ({ value: t }) => {
-    var r, s;
-    const e =
-        (s = (r = X.find((n) => n.level === t)) == null ? void 0 : r.limit) !=
-        null
-          ? s
-          : 0,
-      {
-        fortress: { unitLimit: l },
-      } = f();
-    return d(c, {
-      children: [o(m, { children: l }), ' :', ' ', o(p, { children: e })],
-    });
-  },
-  $o = ({ value: t }) => {
-    var i, h;
-    const e = ee.find((y) => y.level === t),
-      l = (i = e == null ? void 0 : e.storage) != null ? i : 0,
-      r = (h = e == null ? void 0 : e.resourceHour) != null ? h : 0,
+  Co = ({ value: e }) => {
+    var c, h;
+    const t = Z.find((y) => y.level === e),
+      l = (c = t == null ? void 0 : t.storage) != null ? c : 0,
+      r = (h = t == null ? void 0 : t.resourceHour) != null ? h : 0,
       s = (l / r) * 3600,
       {
-        general: { hourShort: n, stone: a, max: g },
-        fortress: { timeToFill: w },
+        fortress: { timeToFill: n },
+        general: { hourShort: i, max: g, stone: u },
       } = f();
-    return d(c, {
-      children: [
-        o(m, { children: a }),
-        ' :',
-        ' ',
-        o(p, { children: r }),
-        '/',
-        n,
-        ', ',
-        g,
-        ' ',
-        o(p, { children: l }),
-        ' (',
-        w,
-        ' :',
-        ' ',
-        o(M, { children: s }),
-        ')',
-      ],
-    });
+    return e === 0
+      ? o(a, {})
+      : d(a, {
+          children: [
+            o(w, { children: u }),
+            ' :',
+            ' ',
+            o(p, { children: r }),
+            '/',
+            i,
+            ', ',
+            g,
+            ' ',
+            o(p, { children: l }),
+            ' (',
+            n,
+            ' :',
+            ' ',
+            o(M, { children: s }),
+            ')',
+          ],
+        });
   },
-  qo = ({ value: t }) => {
+  Lo = ({ value: e }) => {
     var r, s;
-    const e =
+    const t =
         (s =
-          (r = Y.find((n) => n.level === t)) == null
+          (r = _.find((n) => n.level === e)) == null
             ? void 0
             : r.timeReduction) != null
           ? s
@@ -1392,311 +1298,423 @@ const mo = ({ tools: t }) => {
       {
         fortress: { quartersTimeReduction: l },
       } = f();
-    return d(c, { children: [o(m, { children: l }), ' : ', e, '%'] });
+    return e === 0
+      ? o(a, {})
+      : d(a, { children: [o(w, { children: l }), ' : ', t, '%'] });
   },
-  Ao = ({ value: t }) => {
+  Ho = ({ value: e }) => {
     var r, s;
-    const e =
-        (s = (r = V.find((n) => n.level === t)) == null ? void 0 : r.limit) !=
+    const t =
+        (s = (r = J.find((n) => n.level === e)) == null ? void 0 : r.limit) !=
         null
           ? s
           : 0,
       {
         fortress: { unitLimit: l },
       } = f();
-    return d(c, {
-      children: [o(m, { children: l }), ' :', ' ', o(p, { children: e })],
-    });
+    return e === 0
+      ? o(a, {})
+      : d(a, {
+          children: [o(w, { children: l }), ' :', ' ', o(p, { children: t })],
+        });
   },
-  Uo = ({ value: t }) => {
+  xo = ({ value: e }) => {
     var r, s;
-    const e =
-        (s = (r = z.find((n) => n.level === t)) == null ? void 0 : r.slot) !=
+    const t =
+        (s = (r = Y.find((n) => n.level === e)) == null ? void 0 : r.slot) !=
         null
           ? s
           : 0,
       {
         fortress: { treasurySlot: l },
       } = f();
-    return d(c, { children: [o(m, { children: l }), ' : ', e] });
+    return e === 0
+      ? o(a, {})
+      : d(a, { children: [o(w, { children: l }), ' : ', t] });
   },
-  jo = ({ value: t }) => {
-    var i, h;
-    const e = Z.find((y) => y.level === t),
-      l = (i = e == null ? void 0 : e.storage) != null ? i : 1,
-      r = (h = e == null ? void 0 : e.resourceHour) != null ? h : 1,
+  ko = ({ value: e }) => {
+    var c, h;
+    const t = X.find((y) => y.level === e),
+      l = (c = t == null ? void 0 : t.storage) != null ? c : 1,
+      r = (h = t == null ? void 0 : t.resourceHour) != null ? h : 1,
       s = (l / r) * 3600,
       {
-        general: { hourShort: n, wood: a, max: g },
-        fortress: { timeToFill: w },
+        fortress: { timeToFill: n },
+        general: { hourShort: i, max: g, wood: u },
       } = f();
-    return d(c, {
-      children: [
-        o(m, { children: a }),
-        ' :',
-        ' ',
-        o(p, { children: r }),
-        '/',
-        n,
-        ', ',
-        g,
-        ' ',
-        o(p, { children: l }),
-        ' (',
-        w,
-        ' :',
-        ' ',
-        o(M, { children: s }),
-        ')',
-      ],
-    });
+    return e === 0
+      ? o(a, {})
+      : d(a, {
+          children: [
+            o(w, { children: u }),
+            ' :',
+            ' ',
+            o(p, { children: r }),
+            '/',
+            i,
+            ', ',
+            g,
+            ' ',
+            o(p, { children: l }),
+            ' (',
+            n,
+            ' :',
+            ' ',
+            o(M, { children: s }),
+            ')',
+          ],
+        });
   },
-  Do = ({ value: t, type: e }) => {
-    var n;
-    const l = (n = U((a) => a.fortress[e].quarters)) != null ? n : 0,
-      r = t > 0 ? yo[t - 1][l] : 0,
-      {
-        fortress: { extractionGemTime: s },
-      } = f();
-    return d(c, {
-      children: [
-        o(m, { children: s }),
-        ' :',
-        ' ',
-        o(M, { minutes: !0, children: r }),
-      ],
-    });
-  },
-  v = (t, e) => [
+  m = (e, t) => [
     (s) => {
-      t(Ye({ [e]: s }));
+      e(Ye({ [t]: s }));
     },
     (s) => {
-      t(ze({ [e]: s }));
+      e(ze({ [t]: s }));
     },
   ],
-  Qo = () => {
-    const { current: t, target: e } = U((Te) => Te.fortress),
-      l = wo(),
+  Ro = () => {
+    const { current: e, target: t } = A((Te) => Te.fortress),
+      l = Ve(),
       { fortress: r } = f(),
-      [s, n] = v(l, 'academy'),
-      [a, g] = v(l, 'archery'),
-      [w, i] = v(l, 'barracks'),
-      [h, y] = v(l, 'fortifications'),
-      [F, b] = v(l, 'fortress'),
-      [S, T] = v(l, 'mageTower'),
-      [oe, te] = v(l, 'mine'),
-      [le, re] = v(l, 'quarry'),
-      [se, ne] = v(l, 'quarters'),
-      [de, ae] = v(l, 'smithy'),
-      [ie, ce] = v(l, 'treasury'),
-      [ge, ue] = v(l, 'woodcutter'),
-      [ve, me] = v(l, 'hok'),
-      [we, he] = v(l, 'soldier'),
-      [fe, pe] = v(l, 'archer'),
-      [be, ye] = v(l, 'mage');
-    return d(c, {
+      [s, n] = m(l, 'academy'),
+      [i, g] = m(l, 'archery'),
+      [u, c] = m(l, 'barracks'),
+      [h, y] = m(l, 'fortifications'),
+      [F, b] = m(l, 'fortress'),
+      [S, T] = m(l, 'mageTower'),
+      [oe, te] = m(l, 'mine'),
+      [le, re] = m(l, 'quarry'),
+      [se, ne] = m(l, 'quarters'),
+      [de, ae] = m(l, 'smithy'),
+      [ie, ce] = m(l, 'treasury'),
+      [ge, ue] = m(l, 'woodcutter'),
+      [ve, me] = m(l, 'hok'),
+      [we, he] = m(l, 'soldier'),
+      [fe, pe] = m(l, 'archer'),
+      [be, ye] = m(l, 'mage');
+    return d(a, {
       children: [
         d('div', {
           className: 'container',
           children: [
-            o(u, {
+            o(v, {
+              current: e.fortress,
               label: r.buildingFortress,
               max: 20,
-              current: t.fortress,
-              target: e.fortress,
               setCurrent: F,
               setTarget: b,
+              target: t.fortress,
             }),
-            o(u, {
+            o(v, {
+              childForm: !0,
+              current: e.hok,
               label: r.upgradeHoK,
-              max: { current: t.fortress, target: e.fortress },
-              current: t.hok,
-              target: e.hok,
+              max: { current: e.fortress, target: t.fortress },
               setCurrent: ve,
               setTarget: me,
-              childForm: !0,
+              target: t.hok,
             }),
             o('hr', { className: 'd-none d-lg-block' }),
-            o(u, {
+            o(v, {
+              additionalStats: Lo,
+              current: e.quarters,
               label: r.buildingQuarters,
               max: 15,
-              current: t.quarters,
-              target: e.quarters,
               setCurrent: se,
               setTarget: ne,
-              additionalStats: qo,
+              target: t.quarters,
             }),
             o('hr', { className: 'd-none d-lg-block' }),
-            o(u, {
+            o(v, {
+              additionalStats: ko,
+              current: e.woodcutter,
               label: r.buildingWoodcutter,
               max: 20,
-              current: t.woodcutter,
-              target: e.woodcutter,
               setCurrent: ge,
               setTarget: ue,
-              additionalStats: jo,
+              target: t.woodcutter,
             }),
-            o(u, {
+            o(v, {
+              additionalStats: Co,
+              current: e.quarry,
               label: r.buildingQuarry,
               max: 20,
-              current: t.quarry,
-              target: e.quarry,
               setCurrent: le,
               setTarget: re,
-              additionalStats: $o,
+              target: t.quarry,
             }),
             o('hr', { className: 'd-none d-lg-block' }),
-            o(u, {
+            o(v, {
+              additionalStats: Fo,
+              current: e.mine,
               label: r.buildingMine,
               max: 20,
-              current: t.mine,
-              target: e.mine,
               setCurrent: oe,
               setTarget: te,
-              additionalStats: Do,
+              target: t.mine,
             }),
             o('hr', { className: 'd-none d-lg-block' }),
-            o(u, {
+            o(v, {
+              additionalStats: po,
+              current: e.academy,
               label: r.buildingAcademy,
               max: 20,
-              current: t.academy,
-              target: e.academy,
               setCurrent: s,
               setTarget: n,
-              additionalStats: ko,
+              target: t.academy,
             }),
             o('hr', { className: 'd-none d-lg-block' }),
-            o(u, {
+            o(v, {
+              additionalStats: bo,
+              current: e.archery,
               label: r.buildingArchery,
               max: 15,
-              current: t.archery,
-              target: e.archery,
-              setCurrent: a,
+              setCurrent: i,
               setTarget: g,
-              additionalStats: Ro,
+              target: t.archery,
             }),
-            o(u, {
+            o(v, {
+              additionalStats: Ho,
+              current: e.barracks,
               label: r.buildingBarracks,
               max: 15,
-              current: t.barracks,
-              target: e.barracks,
-              setCurrent: w,
-              setTarget: i,
-              additionalStats: Ao,
+              setCurrent: u,
+              setTarget: c,
+              target: t.barracks,
             }),
-            o(u, {
+            o(v, {
+              additionalStats: No,
+              current: e.mageTower,
               label: r.buildingMageTower,
               max: 15,
-              current: t.mageTower,
-              target: e.mageTower,
               setCurrent: S,
               setTarget: T,
-              additionalStats: Mo,
+              target: t.mageTower,
             }),
             o('hr', { className: 'd-none d-lg-block' }),
-            o(u, {
+            o(v, {
+              additionalStats: xo,
+              current: e.treasury,
               label: r.buildingTreasury,
               max: 20,
-              current: t.treasury,
-              target: e.treasury,
               setCurrent: ie,
               setTarget: ce,
-              additionalStats: Uo,
+              target: t.treasury,
             }),
             o('hr', { className: 'd-none d-lg-block' }),
-            o(u, {
+            o(v, {
+              current: e.smithy,
               label: r.buildingSmithy,
               max: 20,
-              current: t.smithy,
-              target: e.smithy,
               setCurrent: de,
               setTarget: ae,
+              target: t.smithy,
             }),
-            o(u, {
+            o(v, {
+              childForm: !0,
+              current: e.soldier,
               label: r.unitSoldier,
-              max: { current: t.smithy, target: e.smithy },
-              current: t.soldier,
-              target: e.soldier,
+              max: { current: e.smithy, target: t.smithy },
               setCurrent: we,
               setTarget: he,
-              childForm: !0,
+              target: t.soldier,
             }),
-            o(u, {
+            o(v, {
+              childForm: !0,
+              current: e.archer,
               label: r.unitArcher,
-              max: { current: t.smithy, target: e.smithy },
-              current: t.archer,
-              target: e.archer,
+              max: { current: e.smithy, target: t.smithy },
               setCurrent: fe,
               setTarget: pe,
-              childForm: !0,
+              target: t.archer,
             }),
-            o(u, {
+            o(v, {
+              childForm: !0,
+              current: e.mage,
               label: r.unitMage,
-              max: { current: t.smithy, target: e.smithy },
-              current: t.mage,
-              target: e.mage,
+              max: { current: e.smithy, target: t.smithy },
               setCurrent: be,
               setTarget: ye,
-              childForm: !0,
+              target: t.mage,
             }),
             o('hr', { className: 'd-none d-lg-block' }),
-            o(u, {
+            o(v, {
+              current: e.fortifications,
               label: r.buildingFortifications,
               max: 20,
-              current: t.fortifications,
-              target: e.fortifications,
               setCurrent: h,
               setTarget: y,
+              target: t.fortifications,
             }),
           ],
         }),
-        o(Ho, {}),
+        o(So, {}),
       ],
     });
   },
-  Po = ({ children: t, defaultLanguage: e }) => {
-    const l = E(e),
+  Mo = ({ tools: e }) => {
+    const t = E();
+    return o('div', {
+      className: 'row row-cols-1 row-cols-md-2 g-4',
+      children: e.map(({ route: l, title: r, description: s }) =>
+        o(
+          'div',
+          {
+            className: 'col',
+            children: o('div', {
+              className: 'card',
+              children: d('div', {
+                className: 'card-body',
+                children: [
+                  o('h5', { className: 'card-title', children: t(r) }),
+                  o('p', { className: 'card-text', children: t(s) }),
+                  o(x, {
+                    to: l,
+                    children: o('i', { className: 'bi bi-calculator' }),
+                  }),
+                ],
+              }),
+            }),
+          },
+          l,
+        ),
+      ),
+    });
+  },
+  $o = ({ tools: e }) => {
+    const { app: t } = f(),
+      l = E();
+    return (
+      $e(() => {
+        document.title = t.title;
+      }, [t.title]),
+      o('nav', {
+        className: 'navbar navbar-expand-lg navbar-dark fixed-top bg-dark',
+        children: d('div', {
+          className: 'container-fluid',
+          children: [
+            o(x, { className: 'navbar-brand', to: '/', children: t.title }),
+            o('button', {
+              className: 'navbar-toggler',
+              type: 'button',
+              'data-bs-toggle': 'collapse',
+              'data-bs-target': '#navbarCollapse',
+              'aria-controls': 'navbarCollapse',
+              'aria-expanded': 'false',
+              'aria-label': 'Toggle navigation',
+              children: o('span', { className: 'navbar-toggler-icon' }),
+            }),
+            o('div', {
+              className: 'collapse navbar-collapse',
+              id: 'navbarCollapse',
+              children: d('ul', {
+                className: 'navbar-nav me-auto mb-2 mb-md-0',
+                children: [
+                  o('li', {
+                    className: 'nav-item',
+                    children: o(x, {
+                      className: 'nav-link active',
+                      'aria-current': 'page',
+                      to: '/',
+                      children: t.home,
+                    }),
+                  }),
+                  d('li', {
+                    className: 'nav-item dropdown',
+                    children: [
+                      o('a', {
+                        className: 'nav-link dropdown-toggle',
+                        href: '#',
+                        id: 'dropdownNav',
+                        'data-bs-toggle': 'dropdown',
+                        'aria-expanded': 'false',
+                        children: t.tools,
+                      }),
+                      o('ul', {
+                        className: 'dropdown-menu',
+                        'aria-labelledby': 'dropdownNav',
+                        children: e.map(({ route: r, title: s }) =>
+                          o(
+                            'li',
+                            {
+                              children: o(x, {
+                                className: 'dropdown-item',
+                                to: r,
+                                children: l(s),
+                              }),
+                            },
+                            r,
+                          ),
+                        ),
+                      }),
+                    ],
+                  }),
+                ],
+              }),
+            }),
+          ],
+        }),
+      })
+    );
+  },
+  qo = qe({ fortress: Je }),
+  Ao = { key: 'root', storage: Qe },
+  Uo = Ae.exports.createLogger({
+    predicate: (e, t) => !t.type.includes('persist/'),
+    collapsed: !0,
+    duration: !0,
+    diff: !0,
+  }),
+  jo = Ue(Ao, qo),
+  Do = je(Uo),
+  ee = De(jo, void 0, Do);
+var Qo = () => {
+  const e = Pe(ee);
+  return { store: ee, persistor: e };
+};
+const Po = ({ children: e, defaultLanguage: t }) => {
+    const l = B(t),
       [r, s] = Ie(l),
       n = {
         allDictionary: C,
         dictionary: C[r],
         userLanguage: r,
-        userLanguageChange: (a) => {
-          const g = E(a);
+        userLanguageChange: (i) => {
+          const g = B(i);
           s(g);
         },
       };
-    return o(k.Provider, { value: n, children: t });
+    return o(k.Provider, { value: n, children: e });
   },
   D = [
     {
+      description: 'fortress.description',
+      page: Ro,
       route: '/fortress',
       title: 'fortress.title',
-      description: 'fortress.description',
-      page: Qo,
     },
   ];
 function Io() {
-  const { persistor: t, store: e } = to();
+  const { persistor: e, store: t } = Qo();
   return o(Oe, {
-    store: e,
+    store: t,
     children: o(Be, {
       loading: null,
-      persistor: t,
+      persistor: e,
       children: o(Po, {
         children: d(Ee, {
           children: [
-            o(vo, { tools: D }),
+            o($o, { tools: D }),
             o('main', {
               className: 'container',
               children: o('div', {
                 className: 'page-container p-5',
                 children: d(Ke, {
                   children: [
-                    o(I, { path: '/', element: o(mo, { tools: D }) }),
-                    D.map(({ route: l, page: r }) =>
-                      o(I, { path: l, element: o(r, {}) }, l),
+                    o(I, { element: o(Mo, { tools: D }), path: '/' }),
+                    D.map(({ page: l, route: r }) =>
+                      o(I, { element: o(l, {}), path: r }, r),
                     ),
                   ],
                 }),

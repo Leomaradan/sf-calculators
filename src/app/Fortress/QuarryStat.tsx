@@ -16,6 +16,8 @@ const QuarryStat = ({ value }: { value: number }) => {
     general: { hourShort, max: maxLabel, stone },
   } = useLanguage();
 
+  if (value === 0) return <></>;
+
   return (
     <>
       <LabelUcFirst>{stone}</LabelUcFirst> :{' '}

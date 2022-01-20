@@ -8,6 +8,9 @@ const QuartersStat = ({ value }: { value: number }) => {
   const {
     fortress: { quartersTimeReduction },
   } = useLanguage();
+
+  if (value === 0) return <></>;
+
   return (
     <>
       <LabelUcFirst>{quartersTimeReduction}</LabelUcFirst> : {time}%

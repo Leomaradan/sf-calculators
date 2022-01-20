@@ -10,6 +10,8 @@ const MageStat = ({ value }: { value: number }) => {
     fortress: { unitLimit },
   } = useLanguage();
 
+  if (value === 0) return <></>;
+
   return (
     <>
       <LabelUcFirst>{unitLimit}</LabelUcFirst> :{' '}
