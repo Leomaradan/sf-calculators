@@ -1128,7 +1128,7 @@ const B = (e) => {
           children: [o(w, { children: l }), ' :', ' ', o(p, { children: t })],
         });
   },
-  yo = (e, t) => new Array(t - e).fill(0).map((l, r) => r + e + 1),
+  yo = (e = 0, t = 0) => new Array(t - e).fill(0).map((l, r) => r + e + 1),
   To = {
     academy: W,
     archer: ho,
