@@ -71,3 +71,22 @@ $success: #7952b3;
 // @import "bootstrap/scss/spinners";
 @import 'bootstrap/scss/utilities';
 // @import "bootstrap/scss/print";*/
+
+.page-container {
+  background-color: $light;
+  border-radius: $border-radius;
+}
+
+@include media-breakpoint-down('lg') {
+  .page-container {
+    background-color: transparent;
+    border-radius: 0;
+  }
+
+  .level-selector {
+    background-color: $light;
+    border-radius: $border-radius;
+    padding: 1rem;
+    margin: 1rem;
+  }
+}
