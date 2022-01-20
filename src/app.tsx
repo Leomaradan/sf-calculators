@@ -14,7 +14,7 @@ const basepath = import.meta.env.BASE_URL;
 
 const tools: IRoute[] = [
   {
-    route: `${basepath}/fortress`,
+    route: `${basepath}fortress`,
     title: 'fortress.title',
     description: 'fortress.description',
     page: Fortress,
