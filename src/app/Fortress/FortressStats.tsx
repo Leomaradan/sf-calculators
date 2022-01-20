@@ -29,7 +29,9 @@ import NumberDisplay from '../components/NumberDisplay';
 const getRange = (current = 0, target = 0) =>
   current === 0 && target === 0
     ? []
-    : new Array(target - current).fill(0).map((_, i) => i + current + 1);
+    : new Array(Math.max(0, target - current))
+        .fill(0)
+        .map((_, i) => i + current + 1);
 
 const tables: Record<keyof IFortressState, ITable[] | IUpgrade[]> = {
   academy: academyLevel,
