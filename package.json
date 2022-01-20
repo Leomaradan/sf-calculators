@@ -34,7 +34,7 @@
   },
   "name": "sf-calculators",
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "tsc && vite build --base=/sf-calculators",
     "dev": "vite",
     "format": "prettier --write \"{,!(node_modules)/**/}*.ts\"",
     "lint": "eslint ./ --ignore-path .gitignore",
@@ -42,6 +42,6 @@
     "preview": "vite preview",
     "schema": "typescript-json-schema ./src/lang/type.ts ILanguage --required --noExtraProps --out src/lang/schema.json"
   },
-  "version": "0.0.0",
+  "version": "1.0.1",
   "license": "MIT"
 }
