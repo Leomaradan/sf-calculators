@@ -10,9 +10,11 @@ import LanguageProvider from './lang/LanguageProvider';
 import 'bootstrap';
 import type { IRoute } from './router';
 
+const basepath = import.meta.env.BASE_URL;
+
 const tools: IRoute[] = [
   {
-    route: '/fortress',
+    route: `${basepath}/fortress`,
     title: 'fortress.title',
     description: 'fortress.description',
     page: Fortress,
@@ -30,7 +32,7 @@ export function App() {
             <main className="container">
               <div className="bg-light p-5 rounded">
                 <Routes>
-                  <Route path="/" element={<Home tools={tools} />} />
+                  <Route path={basepath} element={<Home tools={tools} />} />
                   {tools.map(({ route, page: Page }) => (
                     <Route key={route} path={route} element={<Page />} />
                   ))}

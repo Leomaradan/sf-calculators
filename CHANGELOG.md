@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Added the public pack in build command
+- Added the public pack in build command, and in react-router
 - Added french translation for the Hall of Knights
 - Changed the build output pack, and added a public folder
 
