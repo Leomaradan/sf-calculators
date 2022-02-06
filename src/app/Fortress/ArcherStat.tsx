@@ -1,21 +1,42 @@
+import { useAppSelector } from '../../features/hooks';
 import { useLanguage } from '../../lang/LanguageContext';
 import LabelUcFirst from '../components/LabelUcFirst';
 import NumberDisplay from '../components/NumberDisplay';
-import { archeryLevel } from './tables';
+import { archerUpgradeLevel, archeryLevel } from './tables';
 
-const ArcherStat = ({ value }: { value: number }) => {
-  const limit = archeryLevel.find((x) => x.level === value)?.limit ?? 0;
+const ArcherStat = ({
+  type,
+  value: archery,
+}: {
+  value: number;
+  type: 'current' | 'target';
+}) => {
+  const limit = archeryLevel.find((x) => x.level === archery)?.limit ?? 0;
+
+  const soldierUpgrade =
+    useAppSelector((state) => state.fortress[type].soldier) ?? 0;
+
+  const upgrade: { neededStone: number; neededWood: number } =
+    archerUpgradeLevel.find((x) => x.level === soldierUpgrade) ?? {
+      neededStone: 0,
+      neededWood: 0,
+    };
 
   const {
     fortress: { unitLimit },
+    general: { stone, wood },
   } = useLanguage();
 
-  if (value === 0) return <></>;
+  if (archery === 0) return <></>;
 
   return (
     <>
       <LabelUcFirst>{unitLimit}</LabelUcFirst> :{' '}
-      <NumberDisplay>{limit}</NumberDisplay>
+      <NumberDisplay>{limit}</NumberDisplay>,{' '}
+      <LabelUcFirst>{wood}</LabelUcFirst> :{' '}
+      <NumberDisplay>{upgrade.neededWood}</NumberDisplay>,{' '}
+      <LabelUcFirst>{stone}</LabelUcFirst> :{' '}
+      <NumberDisplay>{upgrade.neededStone}</NumberDisplay>,
     </>
   );
 };

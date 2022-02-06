@@ -24,6 +24,7 @@
     "title": "Forteresse",
     "treasurySlot": "emplacement",
     "unitArcher": "archer",
+    "unitLevel": "niveau",
     "unitLimit": "limite d'unités",
     "unitMage": "mage de combat",
     "unitSoldier": "soldat",
@@ -36,6 +37,7 @@
     "gold": "or",
     "hour": "heur",
     "hourShort": "h",
+    "soul": "âme",
     "max": "max",
     "minute": "minute",
     "minuteShort": "m",
@@ -44,5 +46,9 @@
     "secondShort": "s",
     "stone": "pierre",
     "wood": "bois"
+  },
+  "underworld": {
+    "description": "Planificateur de développement des enfers",
+    "title": "Enfers"
   }
 }

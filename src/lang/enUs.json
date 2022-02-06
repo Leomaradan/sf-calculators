@@ -26,6 +26,7 @@
     "unitArcher": "archer",
     "unitLimit": "unit limit",
     "unitMage": "mage",
+    "unitLevel": "level",
     "unitSoldier": "soldier",
     "upgradeHoK": "hall of knights"
   },
@@ -35,6 +36,7 @@
     "dayShort": "d",
     "gold": "gold",
     "hour": "hour",
+    "soul": "soul",
     "hourShort": "h",
     "max": "max",
     "minute": "minute",
@@ -44,5 +46,9 @@
     "secondShort": "s",
     "stone": "stone",
     "wood": "wood"
+  },
+  "underworld": {
+    "description": "Underworld construction planner",
+    "title": "Underworld"
   }
 }

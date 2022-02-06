@@ -4,6 +4,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import './app.scss';
 import Fortress from './app/Fortress/Fortress';
+import Underworld from './app/Underworld/Underworld';
 import Home from './app/Home';
 import NavBar from './app/navigation/NavBar';
 import getStore from './features/store';
@@ -16,6 +17,12 @@ const tools: IRoute[] = [
     page: Fortress,
     route: '/fortress',
     title: 'fortress.title',
+  },
+  {
+    description: 'underworld.description',
+    page: Underworld,
+    route: '/underworld',
+    title: 'underworld.title',
   },
 ];
 

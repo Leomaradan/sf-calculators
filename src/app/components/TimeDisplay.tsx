@@ -14,7 +14,7 @@ const secondsToString = (value: number, lang: ILanguage) => {
 
   let hoursString = hours.toString();
   let minutesString = minutes.toString();
-  let secondsString = seconds.toString();
+  let secondsString = Math.ceil(seconds).toString();
 
   if (hours < 10 && value >= DAYS) {
     hoursString = `0${hoursString}`;

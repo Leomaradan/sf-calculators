@@ -5,12 +5,15 @@ import { useAppDispatch, useAppSelector } from '../../features/hooks';
 import { useLanguage } from '../../lang/LanguageContext';
 import { LevelSelectors } from '../components/LevelSelectors';
 import AcademyStat from './AcademyStat';
+import ArcherForgeStat from './ArcherForgeStat';
 import ArcherStat from './ArcherStat';
 import FortressStats from './FortressStats';
 import GemMineStat from './GemMineStat';
+import MageForgeStat from './MageForgeStat';
 import MageStat from './MageStat';
 import QuarryStat from './QuarryStat';
 import QuartersStat from './QuartersStat';
+import SoldierForgeStat from './SoldierForgeStat';
 import SoldierStat from './SoldierStat';
 import TreasuryStat from './TreasuryStats';
 import WoodcutterStat from './WoodcutterStat';
@@ -219,6 +222,7 @@ const Fortress = () => {
           target={target.smithy}
         />
         <LevelSelectors
+          additionalStats={SoldierForgeStat}
           childForm
           current={current.soldier}
           label={fortress.unitSoldier}
@@ -231,6 +235,7 @@ const Fortress = () => {
           target={target.soldier}
         />
         <LevelSelectors
+          additionalStats={ArcherForgeStat}
           childForm
           current={current.archer}
           label={fortress.unitArcher}
@@ -243,6 +248,7 @@ const Fortress = () => {
           target={target.archer}
         />
         <LevelSelectors
+          additionalStats={MageForgeStat}
           childForm
           current={current.mage}
           label={fortress.unitMage}

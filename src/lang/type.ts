@@ -25,9 +25,14 @@ export interface ILanguage {
     treasurySlot: string;
     unitArcher: string;
     unitLimit: string;
+    unitLevel: string;
     unitMage: string;
     unitSoldier: string;
     upgradeHoK: string;
+  };
+  underworld: {
+    title: string;
+    description: string;
   };
   general: {
     count: string;
@@ -37,6 +42,7 @@ export interface ILanguage {
     hour: string;
     hourShort: string;
     max: string;
+    soul: string;
     minute: string;
     minuteShort: string;
     resources: string;
