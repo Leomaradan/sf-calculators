@@ -1,48 +1,48 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { IFortressPlanerState, Payload } from './types';
+import type { Payload, IFortressPlanerState } from './types';
 
 const initialState: IFortressPlanerState = {
   current: {
-    fortress: 0,
     academy: 0,
+    archer: 0,
     archery: 0,
     barracks: 0,
     fortifications: 0,
+    fortress: 0,
+    hok: 0,
+    mage: 0,
     mageTower: 0,
     mine: 0,
     quarry: 0,
+    quarters: 0,
     smithy: 0,
+    soldier: 0,
     treasury: 0,
     woodcutter: 0,
-    quarters: 0,
-    archer: 0,
-    mage: 0,
-    hok: 0,
-    soldier: 0,
   },
   target: {
-    fortress: 0,
     academy: 0,
+    archer: 0,
     archery: 0,
     barracks: 0,
     fortifications: 0,
+    fortress: 0,
+    hok: 0,
+    mage: 0,
     mageTower: 0,
     mine: 0,
     quarry: 0,
+    quarters: 0,
     smithy: 0,
+    soldier: 0,
     treasury: 0,
     woodcutter: 0,
-    quarters: 0,
-    archer: 0,
-    mage: 0,
-    hok: 0,
-    soldier: 0,
   },
 };
 
-export const fortressSlice = createSlice({
-  name: 'fortress',
+const fortressSlice = createSlice({
   initialState,
+  name: 'fortress',
   reducers: {
     setCurrent: (state, action: Payload) => {
       // eslint-disable-next-line no-param-reassign
