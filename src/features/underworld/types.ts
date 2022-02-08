@@ -5,8 +5,8 @@ export interface IUnderworldState {
   extractor: number;
   gate: number;
   gladiator: number;
-  goblinUpgrade: number;
   goblinPit: number;
+  goblinUpgrade: number;
   gold: number;
   heart: number;
   keeper: number;
@@ -18,8 +18,8 @@ export interface IUnderworldState {
 
 export interface IUnderworldPlanerState {
   current: IUnderworldState;
-  target: IUnderworldState;
   currentHeroesLevel: number;
+  target: IUnderworldState;
   targetHeroesLevel: number;
 }
 

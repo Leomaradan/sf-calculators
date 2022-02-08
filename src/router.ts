@@ -1,8 +1,16 @@
 import type { JSX } from 'preact';
 
-export interface IRoute {
+export interface IRouteMenu {
+  description: string;
   route: string;
   title: string;
-  description: string;
   page: () => JSX.Element;
 }
+
+export interface IRouteChild {
+  inMenu: false;
+  route: string;
+  page: () => JSX.Element;
+}
+
+export type IRoute = IRouteChild | IRouteMenu;

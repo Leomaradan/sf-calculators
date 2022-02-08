@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useLanguageResolver } from '../lang/LanguageContext';
-import type { IRoute } from '../router';
+import type { IRoute, IRouteMenu } from '../router';
 
 interface IHomeProps {
-  tools: IRoute[];
+  tools: IRouteMenu[];
 }
 
 const Home = ({ tools }: IHomeProps) => {
@@ -11,8 +11,8 @@ const Home = ({ tools }: IHomeProps) => {
 
   return (
     <div className="row row-cols-1 row-cols-md-2 g-4">
-      {tools.map(({ route, title, description }) => (
-        <div key={route} className="col">
+      {tools.map(({ description, route, title }) => (
+        <div className="col" key={route}>
           <div className="card">
             <div className="card-body">
               <h5 className="card-title">{resolver(title)}</h5>

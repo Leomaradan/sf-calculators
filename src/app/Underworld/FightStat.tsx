@@ -1,7 +1,7 @@
 import { useAppSelector } from '../../features/hooks';
 import LabelUcFirst from '../components/LabelUcFirst';
 import NumberDisplay from '../components/NumberDisplay';
-import { underworldGate, tortureChamber, underworldFight } from './tables';
+import { tortureChamber, underworldFight, underworldGate } from './tables';
 
 const numToPercent = (num: number) => num / 100 + 1;
 const numFromPercent = (num: number) => `${Math.round(num * 100)}%`;
@@ -31,7 +31,7 @@ const GateStat = ({
 
   const bonus = numToPercent(gate.bonusSoul) * numToPercent(tortureBonus);
 
-  const maxSoulPerHero = Math.floor(souls * bonus);
+  const maxSoulPerHero = Math.floor(bonus * souls);
 
   return (
     <>
@@ -40,7 +40,7 @@ const GateStat = ({
       <LabelUcFirst>Souls per heroes</LabelUcFirst> :{' '}
       <NumberDisplay>{maxSoulPerHero}</NumberDisplay>,{' '}
       <LabelUcFirst>Max souls per day</LabelUcFirst> :{' '}
-      <NumberDisplay>{maxSoulPerHero * gate.heroes}</NumberDisplay>
+      <NumberDisplay>{gate.heroes * maxSoulPerHero}</NumberDisplay>
     </>
   );
 };

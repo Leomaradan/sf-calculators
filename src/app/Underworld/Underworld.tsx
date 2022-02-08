@@ -1,19 +1,19 @@
 import type { AnyAction, Dispatch } from '@reduxjs/toolkit';
-import {
-  setCurrent,
-  setTarget,
-  seTargetHeroesLevel,
-  setCurrentHeroesLevel,
-} from '../../features/underworld/underworldSlice';
-import type { IUnderworldState } from '../../features/underworld/types';
 import { useAppDispatch, useAppSelector } from '../../features/hooks';
+import type { IUnderworldState } from '../../features/underworld/types';
+import {
+  seTargetHeroesLevel,
+  setCurrent,
+  setCurrentHeroesLevel,
+  setTarget,
+} from '../../features/underworld/underworldSlice';
 import { LevelSelectors } from '../components/LevelSelectors';
-import ExtractorStat from './ExtractorStat';
-import UnderworldStats from './UnderworldStats';
 import AdventureStat from './AdventureStat';
-import GladiatorStat from './GladiatorStat';
-import GateStat from './GateStat';
+import ExtractorStat from './ExtractorStat';
 import FightStat from './FightStat';
+import GateStat from './GateStat';
+import GladiatorStat from './GladiatorStat';
+import UnderworldStats from './UnderworldStats';
 
 const useUnderworldDispatchers = (
   dispatch: Dispatch<AnyAction>,
@@ -31,7 +31,7 @@ const useUnderworldDispatchers = (
 };
 
 const Underworld = () => {
-  const { current, target, currentHeroesLevel, targetHeroesLevel } =
+  const { current, currentHeroesLevel, target, targetHeroesLevel } =
     useAppSelector((state) => state.underworld);
 
   const dispatch = useAppDispatch();
@@ -211,12 +211,12 @@ const Underworld = () => {
           target={target.adventure}
         />
         <LevelSelectors
-          range
           additionalStats={FightStat}
           current={currentHeroesLevel ?? 1}
           label="Heroes level"
           max={580}
           min={1}
+          range
           setCurrent={setCurrentHeroesLevelDispatch}
           setTarget={setTargetHeroesLevelDispatch}
           target={targetHeroesLevel ?? 1}

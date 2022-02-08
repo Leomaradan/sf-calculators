@@ -1,21 +1,21 @@
 import type { IFight, IGate } from './type';
 
 export const underworldGate: IGate[] = [
-  { level: 1, gold: 500, soul: 0, heroes: 1, bonusSoul: 0 },
-  { level: 2, gold: 1000, soul: 55, heroes: 2, bonusSoul: 0 },
-  { level: 3, gold: 1500, soul: 149, heroes: 3, bonusSoul: 0 },
-  { level: 4, gold: 2000, soul: 380, heroes: 4, bonusSoul: 0 },
-  { level: 5, gold: 2500, soul: 990, heroes: 5, bonusSoul: 0 },
-  { level: 6, gold: 3000, soul: 2255, heroes: 5, bonusSoul: 20 },
-  { level: 7, gold: 3500, soul: 4820, heroes: 5, bonusSoul: 40 },
-  { level: 8, gold: 4000, soul: 10090, heroes: 5, bonusSoul: 60 },
-  { level: 9, gold: 4500, soul: 26730, heroes: 5, bonusSoul: 80 },
-  { level: 10, gold: 5000, soul: 65930, heroes: 5, bonusSoul: 100 },
-  { level: 11, gold: 5500, soul: 135400, heroes: 5, bonusSoul: 120 },
-  { level: 12, gold: 6000, soul: 306500, heroes: 5, bonusSoul: 140 },
-  { level: 13, gold: 6500, soul: 617750, heroes: 5, bonusSoul: 160 },
-  { level: 14, gold: 7000, soul: 1158300, heroes: 5, bonusSoul: 180 },
-  { level: 15, gold: 7500, soul: 2494800, heroes: 5, bonusSoul: 200 },
+  { bonusSoul: 0, gold: 500, heroes: 1, level: 1, soul: 0 },
+  { bonusSoul: 0, gold: 1000, heroes: 2, level: 2, soul: 55 },
+  { bonusSoul: 0, gold: 1500, heroes: 3, level: 3, soul: 149 },
+  { bonusSoul: 0, gold: 2000, heroes: 4, level: 4, soul: 380 },
+  { bonusSoul: 0, gold: 2500, heroes: 5, level: 5, soul: 990 },
+  { bonusSoul: 20, gold: 3000, heroes: 5, level: 6, soul: 2255 },
+  { bonusSoul: 40, gold: 3500, heroes: 5, level: 7, soul: 4820 },
+  { bonusSoul: 60, gold: 4000, heroes: 5, level: 8, soul: 10090 },
+  { bonusSoul: 80, gold: 4500, heroes: 5, level: 9, soul: 26730 },
+  { bonusSoul: 100, gold: 5000, heroes: 5, level: 10, soul: 65930 },
+  { bonusSoul: 120, gold: 5500, heroes: 5, level: 11, soul: 135400 },
+  { bonusSoul: 140, gold: 6000, heroes: 5, level: 12, soul: 306500 },
+  { bonusSoul: 160, gold: 6500, heroes: 5, level: 13, soul: 617750 },
+  { bonusSoul: 180, gold: 7000, heroes: 5, level: 14, soul: 1158300 },
+  { bonusSoul: 200, gold: 7500, heroes: 5, level: 15, soul: 2494800 },
 ];
 
 export const underworldFight: IFight[] = [

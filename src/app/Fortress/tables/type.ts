@@ -1,8 +1,8 @@
 export interface ITable {
-  level: number;
   gold: number;
-  wood: number;
+  level: number;
   stone: number;
+  wood: number;
 }
 
 export interface IUnit extends ITable {
@@ -12,14 +12,14 @@ export interface IUnit extends ITable {
 export type IUpgrade = Omit<ITable, 'gold'>;
 
 export interface IUnitUpgrade extends IUpgrade {
-  unitLevel: number;
-  neededWood: number;
   neededStone: number;
+  neededWood: number;
+  unitLevel: number;
 }
 
 export interface IWoodAndStone extends ITable {
-  storage: number;
   resourceHour: number;
+  storage: number;
 }
 
 export interface ITreasury extends ITable {

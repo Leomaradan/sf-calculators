@@ -16,10 +16,10 @@ import {
 
 import type { ITable } from './tables/type';
 
+import type { IUnderworldState } from '../../features/underworld/types';
 import { useLanguage } from '../../lang/LanguageContext';
 import LabelUcFirst from '../components/LabelUcFirst';
 import NumberDisplay from '../components/NumberDisplay';
-import type { IUnderworldState } from '../../features/underworld/types';
 
 const getRange = (current = 0, target = 0) =>
   current === 0 && target === 0
@@ -30,17 +30,17 @@ const getRange = (current = 0, target = 0) =>
 
 const tables: Record<keyof IUnderworldState, ITable[]> = {
   adventure: aventureomatic,
+  extractor: soulExtractor,
+  gate: underworldGate,
   gladiator: gladiatorTrainer,
   goblinPit,
+  goblinUpgrade: [],
   gold: goldPit,
   heart: heartOfDarkness,
   keeper,
-  extractor: soulExtractor,
+  keeperUpgrade: [],
   torture: tortureChamber,
   trollBlock,
-  gate: underworldGate,
-  goblinUpgrade: [],
-  keeperUpgrade: [],
   trollUpgrade: [],
 };
 

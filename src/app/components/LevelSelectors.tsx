@@ -4,27 +4,27 @@ import ModalPopup from './ModalPopup';
 import NumberDisplay from './NumberDisplay';
 
 interface ILevelProps {
-  value: number;
   label?: string;
-  range?: boolean;
-  min: number;
   max: number;
+  min: number;
   placeholder?: string;
+  range?: boolean;
+  value: number;
   onChange: (e: JSX.TargetedEvent<HTMLInputElement, Event>) => void;
 }
 
 const Level = ({
+  label,
   max,
   min,
   onChange,
   placeholder,
-  value,
   range,
-  label,
+  value,
 }: ILevelProps) => {
   if (range) {
     return (
-      <div class="input-group">
+      <div className="input-group">
         <input
           aria-label={label}
           className="form-control"
@@ -35,7 +35,7 @@ const Level = ({
           type="range"
           value={value}
         />
-        <span class="input-group-text">
+        <span className="input-group-text">
           <NumberDisplay>{value}</NumberDisplay>
         </span>
       </div>
@@ -61,6 +61,7 @@ export interface ILevelSelectorsProps {
   label: string;
   max: number | { current: number; target: number };
   min?: number;
+  range?: boolean;
   target: number;
   targetLabel?: string;
   additionalStats?: (props: {
@@ -69,7 +70,6 @@ export interface ILevelSelectorsProps {
   }) => JSX.Element;
   setCurrent(current: number): void;
   setTarget(target: number): void;
-  range?: boolean;
 }
 
 export const LevelSelectors = ({
@@ -80,8 +80,8 @@ export const LevelSelectors = ({
   label,
   max,
   min,
-  setCurrent,
   range,
+  setCurrent,
   setTarget,
   target,
   targetLabel,

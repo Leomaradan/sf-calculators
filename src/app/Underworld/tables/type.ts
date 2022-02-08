@@ -1,6 +1,6 @@
 export interface ITable {
-  level: number;
   gold: number;
+  level: number;
   soul: number;
 }
 
@@ -11,19 +11,19 @@ export interface IUpgrade extends ITable {
 export type IFight = Omit<ITable, 'gold'>;
 
 export interface IGate extends ITable {
-  heroes: number;
   bonusSoul: number;
+  heroes: number;
 }
 
 export interface ISoulExtractor extends ITable {
-  storage: number;
   resourceHour: number;
+  storage: number;
 }
 
 export interface IUnit extends ITable {
-  unitNumber: number;
-  unitName: string;
   unitLevel: number;
+  unitName: string;
+  unitNumber: number;
 }
 
 export interface IGladiatorTorture extends ITable {
