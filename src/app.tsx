@@ -7,6 +7,7 @@ import { Album } from './app/Album';
 import { Category } from './app/Album/Categoy';
 import Fortress from './app/Fortress/Fortress';
 import Home from './app/Home';
+import Underworld from './app/Underworld/Underworld';
 import NavBar from './app/navigation/NavBar';
 import getStore from './features/store';
 import LanguageProvider from './lang/LanguageProvider';
@@ -18,6 +19,12 @@ const tools: IRoute[] = [
     page: Fortress,
     route: '/fortress',
     title: 'fortress.title',
+  },
+  {
+    description: 'underworld.description',
+    page: Underworld,
+    route: '/underworld',
+    title: 'underworld.title',
   },
   {
     description: 'album.description',

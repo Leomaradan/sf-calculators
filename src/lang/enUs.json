@@ -1227,6 +1227,7 @@
     "title": "Fortress",
     "treasurySlot": "slot",
     "unitArcher": "archer",
+    "unitLevel": "level",
     "unitLimit": "unit limit",
     "unitMage": "mage",
     "unitSoldier": "soldier",
@@ -1245,7 +1246,12 @@
     "resources": "resources",
     "second": "second",
     "secondShort": "s",
+    "soul": "soul",
     "stone": "stone",
     "wood": "wood"
+  },
+  "underworld": {
+    "description": "Underworld construction planner",
+    "title": "Underworld"
   }
 }

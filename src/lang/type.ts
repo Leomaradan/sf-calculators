@@ -1227,6 +1227,7 @@ export interface ILanguage {
     title: string;
     treasurySlot: string;
     unitArcher: string;
+    unitLevel: string;
     unitLimit: string;
     unitMage: string;
     unitSoldier: string;
@@ -1245,8 +1246,13 @@ export interface ILanguage {
     resources: string;
     second: string;
     secondShort: string;
+    soul: string;
     stone: string;
     wood: string;
+  };
+  underworld: {
+    description: string;
+    title: string;
   };
 }
 

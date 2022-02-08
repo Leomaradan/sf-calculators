@@ -4889,6 +4889,9 @@
         "unitArcher": {
           "type": "string"
         },
+        "unitLevel": {
+          "type": "string"
+        },
         "unitLimit": {
           "type": "string"
         },
@@ -4922,6 +4925,7 @@
         "title",
         "treasurySlot",
         "unitArcher",
+        "unitLevel",
         "unitLimit",
         "unitMage",
         "unitSoldier",
@@ -4968,6 +4972,9 @@
         "secondShort": {
           "type": "string"
         },
+        "soul": {
+          "type": "string"
+        },
         "stone": {
           "type": "string"
         },
@@ -4988,12 +4995,26 @@
         "resources",
         "second",
         "secondShort",
+        "soul",
         "stone",
         "wood"
       ],
       "type": "object"
+    },
+    "underworld": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": ["description", "title"],
+      "type": "object"
     }
   },
-  "required": ["album", "app", "fortress", "general"],
+  "required": ["album", "app", "fortress", "general", "underworld"],
   "type": "object"
 }

@@ -1,12 +1,67 @@
+import { useEffect } from 'preact/hooks';
 import LabelUcFirst from './LabelUcFirst';
 import ModalPopup from './ModalPopup';
+import NumberDisplay from './NumberDisplay';
 
+interface ILevelProps {
+  label?: string;
+  max: number;
+  min: number;
+  placeholder?: string;
+  range?: boolean;
+  value: number;
+  onChange: (e: JSX.TargetedEvent<HTMLInputElement, Event>) => void;
+}
+
+const Level = ({
+  label,
+  max,
+  min,
+  onChange,
+  placeholder,
+  range,
+  value,
+}: ILevelProps) => {
+  if (range) {
+    return (
+      <div className="input-group">
+        <input
+          aria-label={label}
+          className="form-control"
+          max={max}
+          min={min}
+          onInput={onChange}
+          placeholder={placeholder}
+          type="range"
+          value={value}
+        />
+        <span className="input-group-text">
+          <NumberDisplay>{value}</NumberDisplay>
+        </span>
+      </div>
+    );
+  }
+  return (
+    <input
+      aria-label={label}
+      className="form-control"
+      max={max}
+      min={min}
+      onInput={onChange}
+      placeholder={placeholder}
+      type="number"
+      value={value}
+    />
+  );
+};
 export interface ILevelSelectorsProps {
   childForm?: boolean;
   current: number;
   currentLabel?: string;
   label: string;
   max: number | { current: number; target: number };
+  min?: number;
+  range?: boolean;
   target: number;
   targetLabel?: string;
   additionalStats?: (props: {
@@ -24,6 +79,8 @@ export const LevelSelectors = ({
   currentLabel,
   label,
   max,
+  min,
+  range,
   setCurrent,
   setTarget,
   target,
@@ -49,6 +106,18 @@ export const LevelSelectors = ({
     }
   };
 
+  useEffect(() => {
+    if (current > maxCurrent) {
+      setCurrent(maxCurrent);
+    }
+  }, [maxCurrent]);
+
+  useEffect(() => {
+    if (target > maxTarget) {
+      setTarget(maxTarget);
+    }
+  }, [maxTarget]);
+
   return (
     <div className="row level-selector">
       <div className="col-lg-4 col-md-12">
@@ -58,16 +127,16 @@ export const LevelSelectors = ({
         </label>
       </div>
       <div className="col-lg-4 col-md-12">
-        <input
-          aria-label={currentLabel}
-          className="form-control"
+        <Level
+          label={currentLabel}
           max={maxCurrent}
-          min="0"
-          onInput={onChangeCurrent}
+          min={min ?? 0}
+          onChange={onChangeCurrent}
           placeholder={currentLabel}
-          type="number"
+          range={range}
           value={current}
         />
+
         {AdditionalStats && (
           <>
             <p className="d-none d-sm-block">
@@ -84,14 +153,13 @@ export const LevelSelectors = ({
         )}
       </div>
       <div className="col-lg-4 col-md-12">
-        <input
-          aria-label={targetLabel}
-          className="form-control"
+        <Level
+          label={targetLabel}
           max={maxTarget}
           min={current}
-          onInput={onChangeTarget}
+          onChange={onChangeTarget}
           placeholder={targetLabel}
-          type="number"
+          range={range}
           value={target}
         />
         {AdditionalStats && (
