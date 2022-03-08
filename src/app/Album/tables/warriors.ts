@@ -121,7 +121,7 @@ export const warriors: IAlbum<ILanguageAlbumWarriors>[] = [
       {
         groupId: 1,
         items: [0],
-        name: 'warriorHsookoftheShipsKobold',
+        name: 'warriorsHookoftheShipsKobold',
       },
     ],
     page: 17,
@@ -129,7 +129,7 @@ export const warriors: IAlbum<ILanguageAlbumWarriors>[] = [
   {
     groups: [
       { groupId: 0, items: [0], name: 'warriorsBoneBreakerofBruteForce' },
-      { groupId: 1, items: [0], name: 'warriorsMrMassacre2000' },
+      { groupId: 1, items: [0], name: 'warriorsMrMassacre' },
     ],
     page: 18,
   },

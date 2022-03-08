@@ -1,10 +1,10 @@
 import { mages } from './mages';
 import { monsters } from './monsters';
 import { scouts } from './scouts';
-import type { IAlbum, IAlbumOld } from './type';
+import type { IAlbum } from './type';
 import { warriors } from './warriors';
 
-const convert = (baseItem: IAlbumOld<any>[]) => {
+const convert = (baseItem: any[]) => {
   const newItems: IAlbum[] = [];
 
   baseItem.forEach((item) => {
@@ -14,7 +14,7 @@ const convert = (baseItem: IAlbumOld<any>[]) => {
       pageIndex = newItems.length - 1;
     }
 
-    const page = newItems[pageIndex];
+    const page = newItems[pageIndex] as IAlbum<any>;
 
     let groupIndex = page.groups.findIndex((g) => g.groupId === item.group);
 
