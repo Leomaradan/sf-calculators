@@ -15,6 +15,7 @@ import FightStat from './FightStat';
 import GateStat from './GateStat';
 import GladiatorStat from './GladiatorStat';
 import UnderworldStats from './UnderworldStats';
+import { GobelinStat, KeeperStat, TrollStat } from './UnitStat';
 
 const useUnderworldDispatchers = (
   dispatch: Dispatch<AnyAction>,
@@ -169,6 +170,18 @@ const Underworld = () => {
           target={target.keeper}
         />
         <LevelSelectors
+          additionalStats={KeeperStat}
+          current={current.keeperUpgrade ?? 0}
+          label="keeper upgrade"
+          max={600}
+          min={0}
+          range
+          setCurrent={setCurrentKeeperUpgrade}
+          setTarget={setTargetKeeperUpgrade}
+          target={target.keeperUpgrade ?? 0}
+          childForm
+        />
+        <LevelSelectors
           additionalStats={GladiatorStat}
           current={current.gladiator}
           label={gladiatorTrainer}
@@ -192,6 +205,18 @@ const Underworld = () => {
           target={target.goblinPit}
         />
         <LevelSelectors
+          additionalStats={GobelinStat}
+          current={current.goblinUpgrade ?? 0}
+          label="gobelin upgrade"
+          max={600}
+          min={0}
+          range
+          setCurrent={setCurrentGoblinUpgrade}
+          setTarget={setTargetGoblinUpgrade}
+          target={target.goblinUpgrade ?? 0}
+          childForm
+        />
+        <LevelSelectors
           current={current.trollBlock}
           label={trollBlock}
           max={{
@@ -201,6 +226,18 @@ const Underworld = () => {
           setCurrent={setCurrentTrollBlock}
           setTarget={setTargetTrollBlock}
           target={target.trollBlock}
+        />
+        <LevelSelectors
+          additionalStats={TrollStat}
+          current={current.trollUpgrade ?? 0}
+          label="troll upgrade"
+          max={600}
+          min={0}
+          range
+          setCurrent={setCurrentTrollUpgrade}
+          setTarget={setTargetTrollUpgrade}
+          target={target.trollUpgrade ?? 0}
+          childForm
         />
         <LevelSelectors
           current={current.gold}

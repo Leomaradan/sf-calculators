@@ -23,8 +23,7 @@ const ArcherStat = ({
     };
 
   const {
-    fortress: { unitLimit },
-    general: { stone, wood },
+    general: { stone, wood, unitLimit },
   } = useLanguage();
 
   if (archery === 0) return <></>;

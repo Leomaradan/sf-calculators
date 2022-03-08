@@ -27,6 +27,7 @@ const tools: IRoute[] = [
     title: 'underworld.title',
   },
   {
+    inMenu: false, // Temporary disabled
     description: 'album.description',
     page: Album,
     route: '/album',

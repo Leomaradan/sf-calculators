@@ -1241,8 +1241,6 @@ export interface ILanguage {
     title: string;
     treasurySlot: string;
     unitArcher: string;
-    unitLevel: string;
-    unitLimit: string;
     unitMage: string;
     unitSoldier: string;
     upgradeHoK: string;
@@ -1262,6 +1260,9 @@ export interface ILanguage {
     secondShort: string;
     soul: string;
     stone: string;
+    unitLevel: string;
+    unitLimit: string;
+    unitCount: string;
     wood: string;
   };
   underworld: {

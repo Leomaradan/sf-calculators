@@ -23,8 +23,7 @@ const MageStat = ({
     };
 
   const {
-    fortress: { unitLimit },
-    general: { stone, wood },
+    general: { stone, wood, unitLimit },
   } = useLanguage();
 
   if (mageTower === 0) return <></>;

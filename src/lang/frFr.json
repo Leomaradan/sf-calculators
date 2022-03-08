@@ -24,8 +24,6 @@
     "title": "Forteresse",
     "treasurySlot": "emplacement",
     "unitArcher": "archer",
-    "unitLevel": "niveau",
-    "unitLimit": "limite d'unités",
     "unitMage": "mage de combat",
     "unitSoldier": "soldat",
     "upgradeHoK": "salle des chevaliers"
@@ -45,6 +43,9 @@
     "secondShort": "s",
     "soul": "âme",
     "stone": "pierre",
+    "unitCount": "nombre d'unités",
+    "unitLevel": "niveau",
+    "unitLimit": "limite d'unités",
     "wood": "bois"
   },
   "underworld": {

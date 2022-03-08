@@ -22,8 +22,7 @@ const SoldierStat = ({
     };
 
   const {
-    fortress: { unitLimit },
-    general: { stone, wood },
+    general: { stone, wood, unitLimit },
   } = useLanguage();
 
   if (barrack === 0) return <></>;

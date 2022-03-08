@@ -8,7 +8,7 @@ const MageForgeStat = ({ value: forge }: { value: number }) => {
     mageUpgradeLevel.find((x) => x.level === forge)?.unitLevel ?? 0;
 
   const {
-    fortress: { unitLevel: unitLevelLabel },
+    general: { unitLevel: unitLevelLabel },
   } = useLanguage();
 
   if (unitLevel === 0) return <></>;

@@ -192,7 +192,7 @@ export const trollBlock: IUnit[] = [
     gold: 8910,
     level: 9,
     soul: 198000,
-    unitLevel: 80, // Unknown unit level
+    unitLevel: 100,
     unitName: 'grim Trolls',
     unitNumber: 2,
   },
@@ -200,7 +200,7 @@ export const trollBlock: IUnit[] = [
     gold: 9900,
     level: 10,
     soul: 439550,
-    unitLevel: 80, // Unknown unit level
+    unitLevel: 100, // Unknown unit level
     unitName: 'Trolls with several weapons',
     unitNumber: 2,
   },
@@ -216,7 +216,7 @@ export const trollBlock: IUnit[] = [
     gold: 11880,
     level: 12,
     soul: 2043300,
-    unitLevel: 80, // Unknown unit level
+    unitLevel: 100, // Unknown unit level
     unitName: 'Trolls with large armory',
     unitNumber: 2,
   },
@@ -224,7 +224,7 @@ export const trollBlock: IUnit[] = [
     gold: 12870,
     level: 13,
     soul: 4118400,
-    unitLevel: 80, // Unknown unit level
+    unitLevel: 100, // Unknown unit level
     unitName: 'terrible Trolls',
     unitNumber: 3,
   },
@@ -232,7 +232,7 @@ export const trollBlock: IUnit[] = [
     gold: 13860,
     level: 14,
     soul: 7722000,
-    unitLevel: 80, // Unknown unit level
+    unitLevel: 100, // Unknown unit level
     unitName: 'terribly dangerous Trolls',
     unitNumber: 3,
   },
@@ -240,7 +240,7 @@ export const trollBlock: IUnit[] = [
     gold: 14850,
     level: 15,
     soul: 16632000,
-    unitLevel: 80, // Unknown unit level
+    unitLevel: 100, // Unknown unit level
     unitName: 'terribly dangerous Trolls',
     unitNumber: 4,
   },
@@ -255,13 +255,13 @@ export const keeper: IUpgrade[] = [
   { gold: 9000, level: 6, soul: 25080, unitLevel: 55 },
   { gold: 10500, level: 7, soul: 45930, unitLevel: 65 },
   { gold: 12000, level: 8, soul: 84150, unitLevel: 80 },
-  { gold: 13500, level: 9, soul: 198000, unitLevel: 80 }, // Unknown unit level
-  { gold: 15000, level: 10, soul: 439550, unitLevel: 80 }, // Unknown unit level
-  { gold: 16500, level: 11, soul: 902850, unitLevel: 80 }, // Unknown unit level
-  { gold: 18000, level: 12, soul: 2043300, unitLevel: 80 }, // Unknown unit level
-  { gold: 19500, level: 13, soul: 4118400, unitLevel: 80 }, // Unknown unit level
-  { gold: 21000, level: 14, soul: 7722000, unitLevel: 80 }, // Unknown unit level
-  { gold: 22500, level: 15, soul: 16632000, unitLevel: 80 }, // Unknown unit level
+  { gold: 13500, level: 9, soul: 198000, unitLevel: 100 },
+  { gold: 15000, level: 10, soul: 439550, unitLevel: 100 }, // Unknown unit level
+  { gold: 16500, level: 11, soul: 902850, unitLevel: 100 }, // Unknown unit level
+  { gold: 18000, level: 12, soul: 2043300, unitLevel: 100 }, // Unknown unit level
+  { gold: 19500, level: 13, soul: 4118400, unitLevel: 100 }, // Unknown unit level
+  { gold: 21000, level: 14, soul: 7722000, unitLevel: 100 }, // Unknown unit level
+  { gold: 22500, level: 15, soul: 16632000, unitLevel: 100 }, // Unknown unit level
 ];
 
 export const unitUpgrade: ITable[] = [

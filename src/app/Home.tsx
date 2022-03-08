@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useLanguageResolver } from '../lang/LanguageContext';
-import type { IRoute, IRouteMenu } from '../router';
+import type { IRouteMenu } from '../router';
 import { Card } from './components/Card/Card';
 
 interface IHomeProps {

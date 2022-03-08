@@ -1,7 +1,7 @@
 import { useEffect } from 'preact/hooks';
 import { Link } from 'react-router-dom';
 import { useLanguage, useLanguageResolver } from '../../lang/LanguageContext';
-import type { IRoute, IRouteChild, IRouteMenu } from '../../router';
+import type { IRouteMenu } from '../../router';
 
 interface INavBarProps {
   tools: IRouteMenu[];

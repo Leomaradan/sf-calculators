@@ -8,7 +8,7 @@ const SoldierForgeStat = ({ value: forge }: { value: number }) => {
     soldierUpgradeLevel.find((x) => x.level === forge)?.unitLevel ?? 0;
 
   const {
-    fortress: { unitLevel: unitLevelLabel },
+    general: { unitLevel: unitLevelLabel },
   } = useLanguage();
 
   if (unitLevel === 0) return <></>;

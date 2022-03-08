@@ -16,8 +16,6 @@ export const dictionaryList = {
   'fr-FR': Object.assign({}, baseMap, frFrFile) as ILanguage,
 };
 
-console.log({ dictionaryList });
-
 const keyLanguages = Object.keys(dictionaryList) as KeysLanguageType[];
 
 const shortnameLanguages: Record<string, KeysLanguageType> = {};
