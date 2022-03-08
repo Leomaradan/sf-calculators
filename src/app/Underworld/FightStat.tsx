@@ -1,10 +1,11 @@
 import { useAppSelector } from '../../features/hooks';
+import { useLanguage } from '../../lang/LanguageContext';
 import LabelUcFirst from '../components/LabelUcFirst';
 import NumberDisplay from '../components/NumberDisplay';
 import { tortureChamber, underworldFight, underworldGate } from './tables';
 
 const numToPercent = (num: number) => num / 100 + 1;
-const numFromPercent = (num: number) => `${Math.round(num * 100)}%`;
+const numFromPercent = (num: number) => Math.round(100 * num);
 
 const GateStat = ({
   type,
@@ -18,6 +19,9 @@ const GateStat = ({
 
   const gateLevel = useAppSelector((state) => state.underworld[type].gate) ?? 0;
 
+  const {
+    underworld: { maxSoulsPerDay, soulsBonus, soulsPerHeroes },
+  } = useLanguage();
   const souls = underworldFight.find((x) => x.level === heroesLevel)?.soul ?? 0;
 
   const tortureBonus =
@@ -35,11 +39,11 @@ const GateStat = ({
 
   return (
     <>
-      <LabelUcFirst>Souls bonus</LabelUcFirst> :{' '}
-      <NumberDisplay>{numFromPercent(bonus)}</NumberDisplay>,{' '}
-      <LabelUcFirst>Souls per heroes</LabelUcFirst> :{' '}
+      <LabelUcFirst>{soulsBonus}</LabelUcFirst> :{' '}
+      <NumberDisplay percent>{numFromPercent(bonus)}</NumberDisplay>,{' '}
+      <LabelUcFirst>{soulsPerHeroes}</LabelUcFirst> :{' '}
       <NumberDisplay>{maxSoulPerHero}</NumberDisplay>,{' '}
-      <LabelUcFirst>Max souls per day</LabelUcFirst> :{' '}
+      <LabelUcFirst>{maxSoulsPerDay}</LabelUcFirst> :{' '}
       <NumberDisplay>{gate.heroes * maxSoulPerHero}</NumberDisplay>
     </>
   );

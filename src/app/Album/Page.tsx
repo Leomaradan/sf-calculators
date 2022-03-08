@@ -1,21 +1,40 @@
+import { useCallback } from 'preact/hooks';
+import { useDispatch } from 'react-redux';
+import { toggle } from '../../features/album/albumSlice';
+import type { IAlbumItem } from '../../features/album/types';
+import { useAlbumPage } from '../../features/hooks';
+import { Group } from './Group';
 import type { IAlbum } from './tables/type';
 
+type ICategory = 'items' | 'mages' | 'monsters' | 'scouts' | 'warriors';
+
 export interface IPageProps {
-  page: number;
-  table: IAlbum[];
+  page: IAlbum;
+  tableName: ICategory;
 }
-export const Page = ({ page, table }: IPageProps) => {
-  const items = table.filter((item) => item.page === page);
 
-  const grouped = items.reduce((acc: IAlbum[][], item) => {
-    if (!acc[item.group]) {
-      acc[item.group] = [];
-    }
+export const Page = ({ page, tableName }: IPageProps) => {
+  const ownedItems = useAlbumPage(tableName, page.page);
+  const dispatch = useDispatch();
+  const getToggleItem = useCallback(
+    (item: IAlbumItem) => () => {
+      dispatch(toggle({ category: tableName, item }));
+    },
+    [dispatch, tableName],
+  );
 
-    acc[item.group].push(item);
-
-    return acc;
-  }, []);
-
-  return <div>{JSON.stringify(grouped, null, 2)}</div>;
+  return (
+    <div className="col-6">
+      {page.groups.map((group) => (
+        <Group
+          getToggleItem={getToggleItem}
+          group={group}
+          key={group.name}
+          ownedItems={ownedItems}
+          page={page.page}
+          tableName={tableName}
+        />
+      ))}
+    </div>
+  );
 };

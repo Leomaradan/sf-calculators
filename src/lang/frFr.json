@@ -48,7 +48,24 @@
     "wood": "bois"
   },
   "underworld": {
+    "adventuromatic": "aventuromatique",
+    "dailyThirst": "soif d'aventure journalière",
     "description": "Planificateur de développement des enfers",
-    "title": "Enfers"
+    "gladiatorCritBonus": "bonus de coup critique",
+    "gladiatorTrainer": "maître gladiateur",
+    "goblinPit": "fosse aux gobelins",
+    "goldPit": "mine d'or",
+    "heartOfDarkness": "cœur des ténèbres",
+    "heroesLevel": "niveau des héros",
+    "heroesPerDay": "héros / jour",
+    "keeper": "gardien",
+    "maxSoulsPerDay": "âme max / jour",
+    "soulExtractor": "extracteur d'âmes",
+    "soulsBonus": "bonus d'âme",
+    "soulsPerHeroes": "âmes / héros",
+    "title": "Enfers",
+    "tortureChamber": "salle de torture",
+    "trollBlock": "bloc de trolls",
+    "underworldGate": "porte des enfers"
   }
 }

@@ -5,11 +5,11 @@ export interface IAlbumItem {
 }
 
 export interface IAlbumState {
-  commonItems: IAlbumItem[];
-  mageItems: IAlbumItem[];
+  items: IAlbumItem[];
+  mages: IAlbumItem[];
   monsters: IAlbumItem[];
-  scoutItems: IAlbumItem[];
-  warriorItems: IAlbumItem[];
+  scouts: IAlbumItem[];
+  warriors: IAlbumItem[];
 }
 
 export type IAlbumType = keyof IAlbumState;

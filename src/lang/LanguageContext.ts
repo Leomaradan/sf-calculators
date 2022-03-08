@@ -1,10 +1,10 @@
-import { useContext } from 'preact/hooks';
 import { createContext } from 'preact';
+import { useContext } from 'preact/hooks';
 import { dictionaryList } from './language';
 import type {
+  KeysLanguageType,
   ILanguage,
   ILanguageContextDefinition,
-  KeysLanguageType,
 } from './type';
 
 export const LanguageContext = createContext<ILanguageContextDefinition>({
@@ -36,7 +36,11 @@ export const useLanguageResolver = () => {
       }
     });
 
-    return String(current);
+    if (typeof current === 'string') {
+      return String(current);
+    }
+
+    return pathToken;
   };
 };
 export const useLocale = (): KeysLanguageType => {

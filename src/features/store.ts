@@ -1,7 +1,7 @@
 import { applyMiddleware, createStore } from '@reduxjs/toolkit';
-import { persistStore, persistReducer } from 'redux-persist';
+import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
-import { createLogger } from 'redux-logger';
+// import { createLogger } from 'redux-logger';
 
 import rootReducer from './reducers';
 
@@ -10,16 +10,16 @@ const persistConfig = {
   storage,
 };
 
-const logger = createLogger({
+/* const logger = createLogger({
   predicate: (getState, action) => !action.type.includes('persist/'),
   collapsed: true,
   duration: true,
   diff: true,
-});
+}); */
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const middlewareEnhancer = applyMiddleware(logger);
+const middlewareEnhancer = applyMiddleware(/* logger */);
 // const composedEnhancers = compose(middlewareEnhancer, monitorReducerEnhancer)
 
 const store = createStore(persistedReducer, undefined, middlewareEnhancer);
@@ -31,5 +31,5 @@ export type AppDispatch = typeof store.dispatch;
 
 export default () => {
   const persistor = persistStore(store);
-  return { store, persistor };
+  return { persistor, store };
 };

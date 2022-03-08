@@ -7,6 +7,7 @@ import {
   setCurrentHeroesLevel,
   setTarget,
 } from '../../features/underworld/underworldSlice';
+import { useLanguage } from '../../lang/LanguageContext';
 import { LevelSelectors } from '../components/LevelSelectors';
 import AdventureStat from './AdventureStat';
 import ExtractorStat from './ExtractorStat';
@@ -36,7 +37,21 @@ const Underworld = () => {
 
   const dispatch = useAppDispatch();
 
-  // const { underworld } = useLanguage();
+  const {
+    underworld: {
+      adventuromatic,
+      gladiatorTrainer,
+      goblinPit,
+      goldPit,
+      heartOfDarkness,
+      heroesLevel,
+      keeper,
+      soulExtractor,
+      tortureChamber,
+      trollBlock,
+      underworldGate,
+    },
+  } = useLanguage();
 
   const [setCurrentAdventure, setTargetAdventure] = useUnderworldDispatchers(
     dispatch,
@@ -101,7 +116,7 @@ const Underworld = () => {
       <div className="container">
         <LevelSelectors
           current={current.heart}
-          label="Hearth of Darkness"
+          label={heartOfDarkness}
           max={15}
           setCurrent={setCurrentHearth}
           setTarget={setTargetHearth}
@@ -110,7 +125,7 @@ const Underworld = () => {
         <LevelSelectors
           additionalStats={ExtractorStat}
           current={current.extractor}
-          label="Soul Extractor"
+          label={soulExtractor}
           max={{
             current: current.heart,
             target: target.heart,
@@ -122,7 +137,7 @@ const Underworld = () => {
         <LevelSelectors
           additionalStats={GateStat}
           current={current.gate}
-          label="Underworld Gate"
+          label={underworldGate}
           max={{
             current: current.heart,
             target: target.heart,
@@ -133,7 +148,7 @@ const Underworld = () => {
         />
         <LevelSelectors
           current={current.torture}
-          label="Torture Chamber"
+          label={tortureChamber}
           max={{
             current: current.heart,
             target: target.heart,
@@ -144,7 +159,7 @@ const Underworld = () => {
         />
         <LevelSelectors
           current={current.keeper}
-          label="Keeper"
+          label={keeper}
           max={{
             current: current.heart,
             target: target.heart,
@@ -156,7 +171,7 @@ const Underworld = () => {
         <LevelSelectors
           additionalStats={GladiatorStat}
           current={current.gladiator}
-          label="Gladiator Trainer"
+          label={gladiatorTrainer}
           max={{
             current: current.heart,
             target: target.heart,
@@ -167,7 +182,7 @@ const Underworld = () => {
         />
         <LevelSelectors
           current={current.goblinPit}
-          label="Gobelin Pit"
+          label={goblinPit}
           max={{
             current: current.heart,
             target: target.heart,
@@ -178,7 +193,7 @@ const Underworld = () => {
         />
         <LevelSelectors
           current={current.trollBlock}
-          label="Troll Block"
+          label={trollBlock}
           max={{
             current: current.heart,
             target: target.heart,
@@ -189,7 +204,7 @@ const Underworld = () => {
         />
         <LevelSelectors
           current={current.gold}
-          label="Gold Pit"
+          label={goldPit}
           max={{
             current: current.heart,
             target: target.heart,
@@ -201,7 +216,7 @@ const Underworld = () => {
         <LevelSelectors
           additionalStats={AdventureStat}
           current={current.adventure}
-          label="Adventuromatic"
+          label={adventuromatic}
           max={{
             current: current.heart,
             target: target.heart,
@@ -213,7 +228,7 @@ const Underworld = () => {
         <LevelSelectors
           additionalStats={FightStat}
           current={currentHeroesLevel ?? 1}
-          label="Heroes level"
+          label={heroesLevel}
           max={580}
           min={1}
           range

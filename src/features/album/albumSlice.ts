@@ -2,11 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { Payload, IAlbumState } from './types';
 
 const initialState: IAlbumState = {
-  commonItems: [],
-  mageItems: [],
+  items: [],
+  mages: [],
   monsters: [],
-  scoutItems: [],
-  warriorItems: [],
+  scouts: [],
+  warriors: [],
 };
 
 const albumSlice = createSlice({
